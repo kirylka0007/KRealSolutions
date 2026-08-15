@@ -6,8 +6,8 @@
 
 - **Deployment scope:** full setup now — create/push the real GitHub repo, create the real Supabase project + run the migration, connect the real Vercel project. `gh auth login` is interactive, so the user runs that one command themselves.
 - **Repo:** existing public repo at `https://github.com/kirylka0007/KRealSolutions` (already has one commit, a README). Reuse it — do not create a new `krealsolutions-web` repo. Local working directory is already git-initialized with `origin` pointing here and the remote history merged in.
-- **Contact email:** `info@krealsolutions.co.uk` (mockup's `hello@…` replaced everywhere: contact section, mailto, footer).
-- **Domain:** no real domain yet. Use a clearly-marked placeholder (`https://krealsolutions.co.uk` — matches the brand name) in canonical URL / Open Graph tags, noted in README as "replace when DNS is ready."
+- **Contact email:** neither the domain nor the mailbox exist yet — `info@krealsolutions.co.uk` is a placeholder, same status as the domain below. Use it everywhere the mockup uses `hello@…` (contact section, mailto, footer), but flag it in the README as "swap once the domain + mailbox are live" rather than treating it as final.
+- **Domain:** no real domain yet. Use a clearly-marked placeholder (`https://krealsolutions.co.uk` — matches the brand name) in canonical URL / Open Graph tags, noted in README as "replace when the domain is bought and DNS is ready."
 - **Employer wording:** keep the mockup's anonymised phrasing ("large regulated financial-services firm" / "large regulated asset manager") verbatim — no further softening.
 - **LinkedIn / phone in footer:** not provided — omit for now (brief lists this as optional, user-supplied later).
 
