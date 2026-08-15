@@ -4,7 +4,7 @@
 
 ## Decisions confirmed with the client (user)
 
-- **Deployment scope:** full setup now — create/push the real GitHub repo, create the real Supabase project + run the migration, connect the real Vercel project. `gh auth login` is interactive, so the user runs that one command themselves.
+- **Deployment scope:** full setup now — push the real GitHub repo, create the real Supabase project + run the migration, connect the real Vercel project. Pushing uses plain `git push`; Git Credential Manager (bundled with Git for Windows) handles GitHub auth via a browser popup on first push — no GitHub CLI needed (there's no GitHub MCP server connected in this session, but none is required here either since the repo already exists).
 - **Repo:** existing public repo at `https://github.com/kirylka0007/KRealSolutions` (already has one commit, a README). Reuse it — do not create a new `krealsolutions-web` repo. Local working directory is already git-initialized with `origin` pointing here and the remote history merged in.
 - **Contact email:** neither the domain nor the mailbox exist yet — `info@krealsolutions.co.uk` is a placeholder, same status as the domain below. Use it everywhere the mockup uses `hello@…` (contact section, mailto, footer), but flag it in the README as "swap once the domain + mailbox are live" rather than treating it as final.
 - **Domain:** no real domain yet. Use a clearly-marked placeholder (`https://krealsolutions.co.uk` — matches the brand name) in canonical URL / Open Graph tags, noted in README as "replace when the domain is bought and DNS is ready."
@@ -63,12 +63,11 @@ Documented in `.env.example`; real values set in Vercel → Settings → Environ
 
 ## Deployment
 
-1. `pnpm` install via corepack; `gh` CLI installed via `winget install --id GitHub.cli`.
-2. User runs `gh auth login` interactively (handed off, not automatable).
-3. Push scaffolded app to `origin main` on the existing `kirylka0007/KRealSolutions` repo.
-4. Create Supabase project + run migration via Supabase MCP tools; pull URL/service-role key.
-5. Import the repo into Vercel via Vercel MCP tools; set env vars; confirm production deploy from `main` + preview deploys on PRs.
-6. README documents local dev, env vars, and the DNS records to add once `krealsolutions.co.uk` (or the real domain) is confirmed.
+1. `pnpm` install via corepack.
+2. Push scaffolded app to `origin main` on the existing `kirylka0007/KRealSolutions` repo via plain `git push` (Git Credential Manager prompts for GitHub auth in a browser on first push if not already cached).
+3. Create Supabase project + run migration via Supabase MCP tools; pull URL/service-role key.
+4. Import the repo into Vercel via Vercel MCP tools; set env vars; confirm production deploy from `main` + preview deploys on PRs.
+5. README documents local dev, env vars, and the DNS records to add once `krealsolutions.co.uk` (or the real domain) is confirmed.
 
 ## Quality bar
 
