@@ -139,6 +139,7 @@ git commit -m "chore: scaffold Next.js app (App Router, TypeScript, Tailwind, pn
 - Modify: `src/app/layout.tsx`
 
 **Interfaces:**
+- Consumes: `IntentProvider` from `src/context/IntentContext.tsx` (Task 3) — `layout.tsx` wraps children with it. **Execution order note:** Task 3 must be implemented before this task, despite the numbering, because of this import. (Task 3 has no dependency on Task 2, so this is a one-directional reorder, not a cycle.)
 - Produces: CSS custom properties (`--ink`, `--paper`, `--assure`, etc.) available globally; Tailwind theme tokens (`colors.ink`, `colors.assure`, etc.) for any new UI; `font-archivo`/`font-plex-sans`/`font-plex-mono` CSS variables from `next/font` for use in `globals.css` font-family rules.
 
 - [ ] **Step 1: Set up fonts in the root layout**
