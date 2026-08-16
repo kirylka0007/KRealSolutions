@@ -1,5 +1,5 @@
 "use client";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useIntent } from "@/context/IntentContext";
 import type { IntentKey } from "@/types/intent";
 
@@ -17,6 +17,11 @@ export function EnquiryForm() {
   const { intent } = useIntent();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [selectedIntent, setSelectedIntent] = useState<IntentKey | "">(intent ?? "");
+
+  useEffect(() => {
+    if (intent) setSelectedIntent(intent);
+  }, [intent]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -84,7 +89,11 @@ export function EnquiryForm() {
         </label>
         <label>
           What would you like to talk about?
-          <select name="intent" defaultValue={intent ?? ""}>
+          <select
+            name="intent"
+            value={selectedIntent}
+            onChange={(e) => setSelectedIntent(e.target.value as IntentKey | "")}
+          >
             <option value="">Not sure yet</option>
             {(Object.keys(INTENT_LABELS) as IntentKey[]).map((key) => (
               <option key={key} value={key}>
