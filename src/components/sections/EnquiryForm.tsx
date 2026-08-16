@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useIntent } from "@/context/IntentContext";
 import type { IntentKey } from "@/types/intent";
 
@@ -18,10 +18,11 @@ export function EnquiryForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedIntent, setSelectedIntent] = useState<IntentKey | "">(intent ?? "");
-
-  useEffect(() => {
+  const [prevIntent, setPrevIntent] = useState(intent);
+  if (intent !== prevIntent) {
+    setPrevIntent(intent);
     if (intent) setSelectedIntent(intent);
-  }, [intent]);
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

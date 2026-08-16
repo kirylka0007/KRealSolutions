@@ -15,11 +15,7 @@ export function useCountUp(
   const [text, setText] = useState(prefix + fmt(0, decimals) + suffix);
 
   useEffect(() => {
-    if (!active) return;
-    if (reduced) {
-      setText(prefix + fmt(target, decimals) + suffix);
-      return;
-    }
+    if (!active || reduced) return;
     let raf = 0;
     const start = performance.now();
     function frame(now: number) {
@@ -33,5 +29,6 @@ export function useCountUp(
     return () => cancelAnimationFrame(raf);
   }, [active, target, decimals, prefix, suffix, duration, reduced]);
 
+  if (active && reduced) return prefix + fmt(target, decimals) + suffix;
   return text;
 }

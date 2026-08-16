@@ -8,10 +8,7 @@ export function useReveal<T extends HTMLElement>() {
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (reduced) {
-      setRevealed(true);
-      return;
-    }
+    if (reduced) return;
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
@@ -29,5 +26,5 @@ export function useReveal<T extends HTMLElement>() {
     return () => io.disconnect();
   }, [reduced]);
 
-  return { ref, revealed };
+  return { ref, revealed: revealed || reduced };
 }
