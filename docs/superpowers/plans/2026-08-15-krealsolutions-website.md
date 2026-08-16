@@ -1953,6 +1953,8 @@ git commit -m "feat: assemble full page, add metadata, sitemap, robots, favicon"
 
 **Interfaces:** none.
 
+**User instruction:** before or alongside this task's browser checks, invoke the `frontend-design:frontend-design` skill and use its guidance to review the rendered UI for visual quality/polish (not just functional correctness) — the mockup's design should read as intentional and distinctive, not templated, once it's live in a real browser rather than static HTML.
+
 - [ ] **Step 1: Start the dev server and open it in a real browser**
 
 Run: `pnpm dev`, then use the claude-in-chrome or chrome-devtools MCP tools to navigate to `http://localhost:3000`.
