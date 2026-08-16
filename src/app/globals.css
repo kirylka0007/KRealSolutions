@@ -244,8 +244,8 @@ footer .brand .dot{width:7px;height:7px}
   .stat-grid{grid-template-columns:1fr 1fr}
   .cov-grid2{grid-template-columns:1fr}
   .appr-grid{grid-template-columns:repeat(2,1fr)}
-  .nav-links{position:fixed;inset:66px 0 auto 0;background:var(--ink);flex-direction:column;gap:0;border-bottom:1px solid var(--hair-ink);padding:8px 0;transform:translateY(-140%);transition:transform .3s var(--ease)}
-  .nav-links.open{transform:none}
+  .nav-links{position:fixed;inset:66px 0 auto 0;background:var(--ink);flex-direction:column;gap:0;border-bottom:1px solid var(--hair-ink);padding:8px 0;transform:translateY(-140%);visibility:hidden;transition:transform .3s var(--ease),visibility .3s var(--ease)}
+  .nav-links.open{transform:none;visibility:visible}
   .nav-links a{padding:15px 28px;width:100%}
   .nav-links .nav-cta{margin:12px 28px;text-align:center}
   .burger{display:block}

@@ -11,6 +11,17 @@ export function Nav() {
           <span className="dot" />K&nbsp;REAL&nbsp;SOLUTIONS{" "}
           <small>Audit&nbsp;·&nbsp;Analytics&nbsp;·&nbsp;AI</small>
         </a>
+        <button
+          className="burger"
+          aria-label="Menu"
+          aria-expanded={open}
+          aria-controls="navlinks"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
         <div className={`nav-links${open ? " open" : ""}`} id="navlinks">
           <a href="#start" onClick={() => setOpen(false)}>
             Start here
@@ -25,16 +36,6 @@ export function Nav() {
             Book a conversation
           </a>
         </div>
-        <button
-          className="burger"
-          aria-label="Menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
       </div>
     </nav>
   );
