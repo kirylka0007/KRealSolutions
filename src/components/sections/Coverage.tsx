@@ -15,8 +15,8 @@ export function Coverage() {
       <div className="wrap">
         <Reveal as="div" className="sec-head">
           <span className="eyebrow">The shift</span>
-          <h2>From a 5% sample to 100% monitored.</h2>
-          <p>Continuous assurance doesn&apos;t test harder — it tests everything, all the time, and sends only the exceptions to a human. Same team, complete coverage.</p>
+          <h2>From a 5% sample to 100% monitored</h2>
+          <p>Continuous assurance doesn&apos;t test harder – it tests everything, all the time, and sends only the exceptions to a human. Same team, complete coverage.</p>
         </Reveal>
 
         <div className="cov-grid2">
@@ -27,7 +27,7 @@ export function Coverage() {
             </div>
             <DotGridPast />
             <div className="cov-note bad">
-              <span className="tick">✕</span> One exception sat outside the sample — and was missed.
+              <span className="tick">✕</span> One exception sat outside the sample – and was missed
             </div>
           </Reveal>
           <Reveal as="div" className="cov-card now">
@@ -45,7 +45,7 @@ export function Coverage() {
         <div ref={payoffRef} className={`cov-payoff reveal${payoffRevealed ? " in" : ""}`}>
           <div className="big">{payoffText}</div>
           <div>
-            <div className="txt">lower fraud losses at organisations that use proactive data analytics as a control, versus those that don&apos;t.</div>
+            <div className="txt">lower fraud losses at organisations that use proactive data analytics as a control, versus those that don&apos;t</div>
             <div className="src">ACFE · Report to the Nations 2026</div>
           </div>
         </div>

@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
 
   if (!checkRateLimit(ip)) {
-    return NextResponse.json({ ok: false, error: "Too many requests — please try again shortly." }, { status: 429 });
+    return NextResponse.json({ ok: false, error: "Too many requests – please try again shortly." }, { status: 429 });
   }
 
   const body = await req.json().catch(() => null);
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (error) {
-    return NextResponse.json({ ok: false, error: "Something went wrong — please try again." }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "Something went wrong – please try again." }, { status: 500 });
   }
 
   await notifyNewEnquiry(parsed.data).catch(() => {});

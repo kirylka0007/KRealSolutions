@@ -19,7 +19,7 @@ export function Contact() {
           <div className="f">
             <span className="tag">No cost</span>
             <h4>Health check</h4>
-            <p>A working session on your controls, data or analytics estate — you leave with a prioritised view of where AI and analytics would pay off.</p>
+            <p>A working session on your controls, data or analytics estate – you leave with a prioritised view of where AI and analytics would pay off.</p>
           </div>
           <div className="f">
             <span className="tag">No cost</span>
@@ -29,7 +29,7 @@ export function Contact() {
           <div className="f">
             <span className="tag">Included</span>
             <h4>Training &amp; upskilling</h4>
-            <p>Hands-on sessions so your auditors build and review analytics themselves — the capability stays in-house.</p>
+            <p>Hands-on sessions so your auditors build and review analytics themselves – the capability stays in-house.</p>
           </div>
         </div>
 

@@ -23,14 +23,14 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "K Real Solutions — Continuous, AI-driven assurance for internal audit",
+  title: "K Real Solutions – Continuous, AI-driven assurance for internal audit",
   description:
-    "Consulting for internal audit and assurance teams in regulated financial services: continuous controls monitoring, GenAI for audit, analytics automation and process mining — built by a qualified auditor and data scientist.",
+    "Consulting for internal audit and assurance teams in regulated financial services: continuous controls monitoring, GenAI for audit, analytics automation and process mining – built by a qualified auditor and data scientist.",
   metadataBase: new URL("https://krealsolutions.co.uk"), // PLACEHOLDER — replace once domain is bought and DNS is live
   openGraph: {
-    title: "K Real Solutions — Continuous, AI-driven assurance for internal audit",
+    title: "K Real Solutions – Continuous, AI-driven assurance for internal audit",
     description:
-      "Continuous controls monitoring, GenAI for audit, analytics automation and process mining — for internal audit teams in regulated financial services.",
+      "Continuous controls monitoring, GenAI for audit, analytics automation and process mining – for internal audit teams in regulated financial services.",
     url: "https://krealsolutions.co.uk", // PLACEHOLDER
     siteName: "K Real Solutions",
     type: "website",

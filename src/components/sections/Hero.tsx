@@ -9,11 +9,11 @@ export function Hero() {
           <span className="eyebrow">Continuous assurance · GenAI · Analytics</span>
           <h1>
             From sample-based testing to{" "}
-            <span className="em">continuous, AI-driven assurance.</span>
+            <span className="em">continuous, AI-driven assurance</span>
           </h1>
           <p className="lede">
             I help internal audit and assurance teams in regulated financial services replace
-            manual, point-in-time testing with continuous, AI-augmented assurance — designed and
+            manual, point-in-time testing with continuous, AI-augmented assurance – designed and
             built by someone who is both a qualified auditor and a data scientist.
           </p>
           <div className="hero-cta">
