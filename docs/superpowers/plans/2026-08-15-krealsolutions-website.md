@@ -2112,13 +2112,13 @@ alter table public.enquiries enable row level security;
 -- No public policies. Inserts happen server-side with the service role key only.
 ```
 
-- [ ] **Step 2: Create the Supabase project**
+- [ ] **Step 2: Use the existing Supabase project**
 
-Use `mcp__claude_ai_Supabase__create_project` (name: `krealsolutions-web`, region closest to the UK, e.g. `eu-west-2` or `eu-west-1`). Wait for it to become active (`mcp__claude_ai_Supabase__get_project`).
+The user already created an empty Supabase project for this site: **"KRealSolutions Website"**, project ref/id `hpemolpqyghkmzawywlm`, region `eu-west-1`, status `ACTIVE_HEALTHY` (confirmed via `mcp__claude_ai_Supabase__get_project`). Do not create a new project — use this one for all subsequent steps.
 
 - [ ] **Step 3: Apply the migration**
 
-Use `mcp__claude_ai_Supabase__apply_migration` with the SQL from Step 1 against the new project.
+Use `mcp__claude_ai_Supabase__apply_migration` with the SQL from Step 1 against project `hpemolpqyghkmzawywlm`.
 Verify: `mcp__claude_ai_Supabase__list_tables` shows `public.enquiries` with RLS enabled and no policies.
 
 - [ ] **Step 4: Pull the connection values**
