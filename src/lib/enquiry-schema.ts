@@ -7,7 +7,7 @@ export const enquirySchema = z.object({
   role: z.string().trim().max(200).optional().or(z.literal("")),
   intent: z.enum(["genai", "starting", "tools", "continuous", "exploring"]).optional(),
   message: z.string().trim().max(5000).optional().or(z.literal("")),
-  honeypot: z.string().max(0).optional().or(z.literal("")),
+  honeypot: z.string().max(200).optional().or(z.literal("")),
 });
 
 export type EnquiryInput = z.infer<typeof enquirySchema>;
