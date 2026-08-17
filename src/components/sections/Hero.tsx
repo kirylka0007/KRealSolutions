@@ -12,15 +12,15 @@ export function Hero() {
             <span className="em">continuous, AI-driven assurance</span>
           </h1>
           <p className="lede">
-            I help internal audit and assurance teams in regulated financial services replace
-            manual, point-in-time testing with continuous, AI-augmented assurance – designed and
-            built by someone who is both a qualified auditor and a data scientist.
+            We help internal audit and assurance teams in regulated financial services replace
+            manual, point-in-time testing with continuous, AI-augmented assurance – built by a
+            team that combines audit qualification with data science.
           </p>
           <div className="hero-cta">
-            <a href="#contact" className="btn btn-primary">
+            <a href="/#contact" className="btn btn-primary">
               Book a conversation <span className="arrow">→</span>
             </a>
-            <a href="#work" className="btn btn-ghost">
+            <a href="/work" className="btn btn-ghost">
               See the work
             </a>
           </div>

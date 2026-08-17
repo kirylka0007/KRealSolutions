@@ -1,7 +1,6 @@
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Chooser } from "@/components/sections/Chooser";
-import { StatBand } from "@/components/sections/StatBand";
 import { Coverage } from "@/components/sections/Coverage";
 import { Positioning } from "@/components/sections/Positioning";
 import { Services } from "@/components/sections/Services";
@@ -17,7 +16,6 @@ export default function Home() {
       <Nav />
       <Hero />
       <Chooser />
-      <StatBand />
       <Coverage />
       <Positioning />
       <Services />

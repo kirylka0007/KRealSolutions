@@ -87,18 +87,6 @@ a{color:inherit;text-decoration:none}
 .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);margin:16px 0 0}
 .sec-head p{color:var(--text-soft);font-size:1.08rem;margin-top:18px;max-width:58ch}
 
-/* STAT BAND */
-.band{background:var(--ink);color:var(--paper-text);position:relative;overflow:hidden}
-.band::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 120% at 10% 100%,rgba(232,163,23,.12),transparent 50%);pointer-events:none}
-.band .wrap{position:relative;z-index:1;padding:90px 28px}
-.band .sec-head h2{color:#fff}
-.band .sec-head p{color:var(--paper-text-soft)}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair-ink);margin-top:56px;border:1px solid var(--hair-ink);border-radius:14px;overflow:hidden}
-.stat{background:var(--ink);padding:34px 26px;transition:background .3s}
-.stat:hover{background:var(--ink-2)}
-.stat-num{font-family:var(--font-archivo),sans-serif;font-weight:900;font-size:clamp(2.6rem,4.6vw,3.6rem);color:var(--exception);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
-.stat-desc{font-size:.98rem;color:var(--paper-text);margin-top:14px;max-width:24ch}
-.stat-src{font-family:var(--font-plex-mono),monospace;font-size:.62rem;letter-spacing:.06em;color:var(--paper-text-soft);margin-top:12px;text-transform:uppercase}
 
 /* COVERAGE */
 .cov .sec-head{margin-bottom:8px}
@@ -255,7 +243,7 @@ footer .brand .dot{width:7px;height:7px}
 }
 @media(max-width:560px){
   .sec{padding:66px 0}
-  .stat-grid,.case-grid,.appr-grid{grid-template-columns:1fr}
+  .case-grid,.appr-grid{grid-template-columns:1fr}
   .console-stats{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
