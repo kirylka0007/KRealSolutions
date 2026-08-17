@@ -1,15 +1,8 @@
 "use client";
 import { useState, type FormEvent } from "react";
 import { useIntent } from "@/context/IntentContext";
+import { INTENT_LABELS } from "@/types/intent";
 import type { IntentKey } from "@/types/intent";
-
-const INTENT_LABELS: Record<IntentKey, string> = {
-  genai: "Get value from GenAI in audit",
-  starting: "Start our data-analytics journey",
-  tools: "Get more from tools we own",
-  continuous: "Move to continuous assurance",
-  exploring: "Not sure yet",
-};
 
 type Status = "idle" | "submitting" | "success" | "error";
 
