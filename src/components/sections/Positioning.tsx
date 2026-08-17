@@ -14,6 +14,9 @@ export function Positioning() {
             <p style={{ marginTop: 16 }}>
               That experience includes putting AI and automation into <strong>live production inside a large, regulated asset manager</strong> – solutions that survive contact with real controls, real regulators and real audit committees. That&apos;s the difference between a proof-of-concept and something your function can actually run.
             </p>
+            <p style={{ marginTop: 16 }}>
+              K Real Solutions is based in Edinburgh, UK, and works with clients across the UK and internationally, subject to local regulatory requirements
+            </p>
           </div>
         </Reveal>
       </div>

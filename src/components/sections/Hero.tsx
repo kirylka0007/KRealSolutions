@@ -26,6 +26,7 @@ export function Hero() {
             </a>
           </div>
           <div className="creds">
+            <span>Based in Edinburgh, UK</span>
             <span>FCCA qualified</span>
             <span>MSc Data Science (Distinction)</span>
             <span>15+ yrs financial services &amp; Big 4</span>
