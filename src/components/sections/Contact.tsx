@@ -16,11 +16,11 @@ export function Contact() {
           </span>
         </div>
         <div className="freebar">
-          <div className="f">
+          <a href="/health-check" className="f">
             <span className="tag">No cost</span>
             <h4>Health check</h4>
-            <p>A working session on your controls, data or analytics estate – you leave with a prioritised view of where AI and analytics would pay off.</p>
-          </div>
+            <p>Six quick questions – see where you stand and the single best-fit next step, instantly.</p>
+          </a>
           <div className="f">
             <span className="tag">No cost</span>
             <h4>Intro with your IA team</h4>
