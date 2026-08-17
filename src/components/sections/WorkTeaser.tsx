@@ -14,7 +14,7 @@ export function WorkTeaser() {
         <Reveal as="div" className="sec-head">
           <span className="eyebrow">Selected work</span>
           <h2>Assurance problems, solved in production</h2>
-          <p>Drawn from delivery inside a large regulated financial-services firm and described here without identifying the client</p>
+          <p>Drawn from delivery inside a large regulated financial-services firm. No client, system, dataset or document is ever named, reused or repurposed. Case studies are published in de-identified form only.</p>
         </Reveal>
         <div className="teaser-grid">
           {TEASERS.map((t) => (

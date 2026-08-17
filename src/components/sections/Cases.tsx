@@ -19,7 +19,7 @@ export function Cases() {
         <Reveal as="div" className="sec-head">
           <span className="eyebrow">Selected work</span>
           <h2>Assurance problems, solved in production</h2>
-          <p>Drawn from delivery inside a large regulated financial-services firm and described here without identifying the client. Third-party platforms are named; internal systems are not.</p>
+          <p>Drawn from delivery inside a large regulated financial-services firm. No client, system, dataset or document is ever named, reused or repurposed. Case studies are published in de-identified form only; third-party platforms are named, internal systems are not.</p>
         </Reveal>
 
         <div className="case-grid">
