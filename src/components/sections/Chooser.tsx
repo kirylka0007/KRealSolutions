@@ -111,7 +111,7 @@ export function Chooser() {
     <section className="sec start" id="start">
       <div className="wrap">
         <Reveal as="div" className="sec-head">
-          <span className="eyebrow">Start here</span>
+          <span className="eyebrow">Find your fit</span>
           <h2>What do you want to solve?</h2>
           <p>Pick the one that sounds most like you – we&apos;ll show you where we&apos;d start, and a no-cost way in</p>
         </Reveal>

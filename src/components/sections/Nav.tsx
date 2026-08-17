@@ -25,7 +25,7 @@ export function Nav() {
         </button>
         <div className={`nav-links${open ? " open" : ""}`} id="navlinks">
           <Link href="/#start" onClick={() => setOpen(false)}>
-            Start here
+            Find your fit
           </Link>
           <Link href="/services" onClick={() => setOpen(false)}>
             Services
