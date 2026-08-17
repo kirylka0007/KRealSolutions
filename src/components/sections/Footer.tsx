@@ -13,8 +13,10 @@ export function Footer() {
           <Link href="/work">Work</Link>
           <Link href="/how-we-work">How we work</Link>
           <Link href="/health-check">Health check</Link>
+          <Link href="/privacy">Privacy</Link>
         </nav>
-        <span>Internal audit · data analytics · AI &nbsp;·&nbsp; Registered in Scotland</span>
+        <span>Internal audit · data analytics · AI &nbsp;·&nbsp; Registered in Scotland, company no. SC891005</span>
+        <span>[registered office address – to be added]</span>
         <span>© {year} K Real Solutions Ltd</span>
       </div>
     </footer>
