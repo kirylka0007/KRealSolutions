@@ -31,7 +31,7 @@ a{color:inherit;text-decoration:none}
 .brand{font-family:var(--font-archivo),sans-serif;font-weight:700;color:var(--paper-text);font-size:1.02rem;display:flex;align-items:center;gap:10px}
 .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--assure);box-shadow:0 0 0 3px rgba(18,165,148,.22);flex:none;animation:beat 2s infinite}
 @keyframes beat{0%,100%{box-shadow:0 0 0 3px rgba(18,165,148,.22)}50%{box-shadow:0 0 0 6px rgba(18,165,148,0)}}
-.brand small{font-family:var(--font-plex-mono),monospace;font-weight:400;font-size:.62rem;letter-spacing:.16em;color:var(--paper-text-soft);text-transform:uppercase}
+.brand small{font-family:var(--font-plex-mono),monospace;font-weight:400;font-size:.68rem;letter-spacing:.16em;color:var(--paper-text);text-transform:uppercase}
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{color:var(--paper-text-soft);font-size:.9rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--paper-text)}
@@ -232,6 +232,12 @@ a{color:inherit;text-decoration:none}
 .contact p{color:var(--paper-text-soft);font-size:1.1rem;max-width:46ch;margin:20px auto 0}
 .contact .btn{margin-top:32px}
 .contact .mailto{margin-top:20px;font-family:var(--font-plex-mono),monospace;font-size:.85rem;color:var(--assure)}
+
+/* ENQUIRY FORM */
+.enquiry-form label{display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:var(--paper-text-soft);text-align:left}
+.enquiry-form input,.enquiry-form select,.enquiry-form textarea{font-family:var(--font-plex-sans),sans-serif;font-size:.96rem;color:var(--paper-text);background:var(--ink-2);border:1px solid var(--hair-ink);border-radius:7px;padding:11px 13px;transition:border-color .2s}
+.enquiry-form input:focus,.enquiry-form select:focus,.enquiry-form textarea:focus{outline:none;border-color:var(--assure)}
+.enquiry-form textarea{resize:vertical}
 
 footer{background:#081b22;color:var(--paper-text-soft);font-size:.82rem}
 footer .wrap{padding:32px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}

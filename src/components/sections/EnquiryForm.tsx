@@ -65,7 +65,7 @@ export function EnquiryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
+    <form className="enquiry-form" onSubmit={handleSubmit} noValidate>
       <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
         <label htmlFor="company_website">Leave this field empty</label>
         <input type="text" id="company_website" name="company_website" tabIndex={-1} autoComplete="off" />
