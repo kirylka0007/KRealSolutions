@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 
-const TECH = ["Microsoft Fabric", "Power BI", "Power Automate", "Alteryx", "Azure OpenAI", "Azure Databricks", "Python", "PM4Py", "RAG pipelines"];
+const TECH = ["Microsoft Fabric", "Power BI", "Power Automate", "Alteryx", "OpenAI", "Anthropic", "Gemini", "Azure Databricks", "Snowflake", "Python", "RAG pipelines"];
 
 export function TechStrip() {
   return (

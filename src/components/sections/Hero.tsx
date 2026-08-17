@@ -12,9 +12,10 @@ export function Hero() {
             <span className="em">continuous, AI-driven assurance</span>
           </h1>
           <p className="lede">
-            We help internal audit and assurance teams in regulated financial services replace
-            manual, point-in-time testing with continuous, AI-augmented assurance – built by a
-            team that combines audit qualification with data science
+            We design and build continuous, AI-driven assurance solutions for internal audit and
+            wider assurance functions in regulated financial services – replacing manual,
+            point-in-time testing with always-on coverage, built by a team that combines audit
+            qualification with data science
           </p>
           <div className="hero-cta">
             <a href="/#contact" className="btn btn-primary">

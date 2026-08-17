@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 const APPROACH = [
   { title: "Assurance-first", body: "Designed by a team that has sat on both sides of the control – the analytics serve the assurance objective, not the other way round" },
   { title: "Human in the loop", body: "AI accelerates and widens coverage; auditors keep judgement and accountability. Explainable by design." },
-  { title: "Works with your stack", body: "Microsoft and Azure, Alteryx, Databricks – we build on what you already have and can govern, not a black box" },
+  { title: "Works with your stack", body: "Microsoft and Azure, Alteryx, Databricks, Snowflake – we build on what you already have and can govern, not a black box" },
   { title: "Transfer, not lock-in", body: "Your team owns the solution and the know-how. Documentation and upskilling are part of the deliverable." },
 ];
 
