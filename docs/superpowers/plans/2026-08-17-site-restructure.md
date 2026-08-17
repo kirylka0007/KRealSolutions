@@ -2253,24 +2253,24 @@ export default function PrivacyPage() {
             <div>
               <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: 10 }}>How long we keep it</h2>
               <p>
-                We retain your information for as long as necessary to respond to your enquiry and for a reasonable follow-up period, typically no more than 24 months, after which it&apos;s deleted unless you ask us to delete it sooner.
+                We retain your information for as long as necessary to respond to your enquiry and for a reasonable follow-up period, typically no more than 24 months, after which it&apos;s deleted unless you ask us to delete it sooner
               </p>
             </div>
 
             <div>
               <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: 10 }}>Your rights</h2>
               <p>
-                You can ask us to access, correct, delete, restrict, or export your data, or object to how we use it, at any time — email{" "}
+                You can ask us to access, correct, delete, restrict, or export your data, or object to how we use it, at any time – email{" "}
                 <a href="mailto:info@krealsolutions.co.uk" style={{ color: "var(--assure-deep)" }}>
                   info@krealsolutions.co.uk
                 </a>{" "}
-                and we&apos;ll act on it promptly.
+                and we&apos;ll act on it promptly
               </p>
             </div>
 
             <div>
               <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: 10 }}>Cookies</h2>
-              <p>We don&apos;t use tracking or advertising cookies on this site.</p>
+              <p>We don&apos;t use tracking or advertising cookies on this site</p>
             </div>
 
             <div>
@@ -2332,8 +2332,574 @@ Grep the diff for `[registered office address` to confirm both placeholder insta
 - [ ] **Step 5: Commit**
 
 ```bash
-git add -A
+git add src/app/privacy/page.tsx src/components/sections/Footer.tsx src/app/sitemap.ts
 git commit -m "feat: add privacy policy page and Companies Act trading disclosure"
+```
+
+---
+
+### Task 13: Full trailing-period sweep — single-sentence prose, not just headings
+
+**Context:** the user pointed out two specific examples still carrying a trailing period despite being single sentences: Contact.tsx's intro paragraph ("A short, no-obligation conversation about your controls...") and Chooser.tsx's GenAI panel description ("We find the highest-value uses across your audit lifecycle..."). The style rule the user confirmed earlier ("Short standalone labels only") was interpreted too narrowly by the Task 6 grep sweep, which only matched `<h1-4>`/`.eyebrow` tags — it missed longer single-sentence text sitting in `<p>`/`<dd>` tags. The actual rule, evidenced by both examples (long compound sentences, still just one terminal period each): **any text block that is grammatically one sentence (exactly one terminal period, regardless of length) loses its trailing period; any block with two or more sentences keeps periods on all of them.** Semicolons and colons don't count as sentence breaks for this rule — a semicolon-joined compound clause with one terminal period is still "one sentence" for this purpose.
+
+This task lists every single-sentence text block across the site that still has a trailing period, file by file, each with its exact before/after text. Multi-sentence blocks are deliberately left untouched (some are listed explicitly as "no change" so the implementer doesn't second-guess them).
+
+**Files:**
+- Modify: `src/components/sections/Hero.tsx`
+- Modify: `src/components/sections/Chooser.tsx`
+- Modify: `src/components/sections/Services.tsx`
+- Modify: `src/components/sections/Cases.tsx`
+- Modify: `src/components/sections/WorkTeaser.tsx`
+- Modify: `src/components/sections/Approach.tsx`
+- Modify: `src/components/sections/Contact.tsx`
+- Modify: `src/components/sections/EnquiryForm.tsx`
+
+**Interfaces:** none — pure copy edits, no signature changes.
+
+- [ ] **Step 1: `Hero.tsx`**
+
+The `.lede` paragraph is one sentence — remove its trailing period:
+
+```
+"...built by a team that combines audit qualification with data science."
+```
+becomes
+```
+"...built by a team that combines audit qualification with data science"
+```
+
+- [ ] **Step 2: `Chooser.tsx`**
+
+The section-head `<p>` is one sentence:
+```
+<p>Pick the one that sounds most like you – we&apos;ll show you where we&apos;d start, and a no-cost way in.</p>
+```
+becomes
+```
+<p>Pick the one that sounds most like you – we&apos;ll show you where we&apos;d start, and a no-cost way in</p>
+```
+
+In the `PANELS` array, 4 of the 5 `desc` fields are one sentence each — strip their trailing period. The 5th (`exploring`) is two sentences — leave it unchanged.
+
+- `genai` desc: remove the period after "...with a human in the loop."
+- `starting` desc: remove the period after "...not with a contractor."
+- `tools` desc: remove the period after "...bought for in the first place."
+- `continuous` desc: remove the period after "...to the full population."
+- `exploring` desc: **no change** — it's two sentences ("A short, no-obligation conversation about your controls, your data and your team." + "We'll tell you honestly where analytics and AI would move the needle – and, just as usefully, where they wouldn't.") — both periods stay.
+
+- [ ] **Step 3: `Services.tsx`**
+
+In the `SERVICES` array, only the `ccm` card's `body` is one sentence — strip its trailing period (remove the period after "...full-population coverage."). The other three short cards (`genai`, `auto`, `pm`) are each two sentences — leave unchanged. The two wide cards (`euc`, `risk-intel`) are multi-sentence — leave unchanged. The section-head `<p>` is two sentences — leave unchanged.
+
+- [ ] **Step 4: `Cases.tsx`**
+
+Per-card `challenge` and `built` fields — strip the trailing period only where noted "1 sentence"; leave "2 sentences" cards untouched:
+
+| Card id | `challenge` | `built` |
+|---|---|---|
+| `ccm-01` | 1 sentence — strip period after "...control health." | 1 sentence — strip period after "...a control breaches." |
+| `ccm-02` | 1 sentence — strip period after "...goes unchecked." | 2 sentences — no change |
+| `assur-01` | 1 sentence — strip period after "...blind spots at the seams." | 1 sentence — strip period after "...re-cover ground." |
+| `genai-01` | 1 sentence — strip period after "...manually at scale." | 2 sentences — no change |
+| `genai-02` | 1 sentence — strip period after "...rarely catches in full." | 1 sentence — strip period after "...hold in their head at once." |
+| `genai-03` | 1 sentence — strip period after "...just to clear the check." | 1 sentence — strip period after "...signing them off." |
+| `pm-01` | 1 sentence (semicolon-joined, still one terminal period) — strip period after "...how it actually ran." | 1 sentence — strip period after "...quantifying the inefficiency." |
+| `auto-01` | 1 sentence — strip period after "...dragging on completion rates." | 1 sentence — strip period after "...conversation automatically." |
+| `genai-04` | 1 sentence — strip period after "...or not at all." | 2 sentences — no change |
+
+The section-head `<p>` ("Drawn from delivery inside a large regulated financial-services firm...Third-party platforms are named; internal systems are not.") is two sentences — leave unchanged.
+
+- [ ] **Step 5: `WorkTeaser.tsx`**
+
+The section-head `<p>` here is the shortened one-sentence version (unlike Cases.tsx's two-sentence full version) — strip its trailing period:
+```
+<p>Drawn from delivery inside a large regulated financial-services firm and described here without identifying the client.</p>
+```
+becomes
+```
+<p>Drawn from delivery inside a large regulated financial-services firm and described here without identifying the client</p>
+```
+
+- [ ] **Step 6: `Approach.tsx`**
+
+In the `APPROACH` array: `"Assurance-first"` and `"Works with your stack"` items are each one sentence — strip their trailing periods. `"Human in the loop"` and `"Transfer, not lock-in"` are each two sentences — leave unchanged. The section-head `<p>` is two sentences — leave unchanged.
+
+- [ ] **Step 7: `Contact.tsx`**
+
+The section-head `<p>` is one sentence — strip its trailing period:
+```
+<p>A short, no-obligation conversation about your controls, your data, and where AI and automation would actually move the needle.</p>
+```
+becomes
+```
+<p>A short, no-obligation conversation about your controls, your data, and where AI and automation would actually move the needle</p>
+```
+
+In the `freebar`, the "Health check" and "Training & upskilling" card descriptions are each one sentence — strip their trailing periods. The "Intro with your IA team" card description is two sentences — leave unchanged.
+
+- [ ] **Step 8: `EnquiryForm.tsx`**
+
+The success-state message was missed by the earlier we-voice sweep (Task 2 only covered Hero/Chooser/Coverage) — it's still first-person, and it's one sentence:
+```tsx
+<p>I&apos;ll get back to you shortly to find a time to talk.</p>
+```
+becomes
+```tsx
+<p>We&apos;ll get back to you shortly to find a time to talk</p>
+```
+
+- [ ] **Step 9: Verify**
+
+Run `pnpm exec tsc --noEmit` — expect no errors (pure string literal changes, should never affect types, but confirm nothing was accidentally broken).
+
+Spot-check by re-reading each modified file's changed lines against the tables above — confirm no "2 sentences — no change" block was accidentally edited, and no "1 sentence — strip" block was missed.
+
+- [ ] **Step 10: Commit**
+
+```bash
+git add src/components/sections/Hero.tsx src/components/sections/Chooser.tsx src/components/sections/Services.tsx src/components/sections/Cases.tsx src/components/sections/WorkTeaser.tsx src/components/sections/Approach.tsx src/components/sections/Contact.tsx src/components/sections/EnquiryForm.tsx
+git commit -m "style: strip trailing periods from single-sentence prose sitewide"
+```
+
+---
+
+### Task 14: Merge /work and /how-we-work into a single /who-we-are page
+
+**Context:** user-requested change after reviewing the live restructured site — rather than two separate subpages (case studies on `/work`, founder bio/approach/stack on `/how-we-work`), merge them into one `/who-we-are` page. Narrative order: founder bio (who we are) → approach (how we work) → case studies (proof) → tech stack. This replaces Tasks 4 and 5's routing decision; `Cases.tsx`, `Positioning.tsx`, `Approach.tsx`, `TechStrip.tsx` (all already built) are reused as-is, only their page composition and the site's nav/footer/sitemap change.
+
+**Files:**
+- Create: `src/app/who-we-are/page.tsx`
+- Delete: `src/app/work/page.tsx`
+- Delete: `src/app/how-we-work/page.tsx`
+- Modify: `src/components/sections/Nav.tsx`
+- Modify: `src/components/sections/Footer.tsx`
+- Modify: `src/components/sections/WorkTeaser.tsx`
+- Modify: `src/components/sections/Cases.tsx`
+- Modify: `src/app/sitemap.ts`
+
+**Interfaces:** none new — reuses `Positioning`, `Approach`, `Cases`, `TechStrip` exactly as Tasks 4/5 built them.
+
+- [ ] **Step 1: Create `src/app/who-we-are/page.tsx`**
+
+```tsx
+import { Nav } from "@/components/sections/Nav";
+import { Positioning } from "@/components/sections/Positioning";
+import { Approach } from "@/components/sections/Approach";
+import { Cases } from "@/components/sections/Cases";
+import { TechStrip } from "@/components/sections/TechStrip";
+import { Footer } from "@/components/sections/Footer";
+
+export default function WhoWeArePage() {
+  return (
+    <>
+      <Nav />
+      <Positioning />
+      <Approach />
+      <Cases />
+      <TechStrip />
+      <Footer />
+    </>
+  );
+}
+```
+
+- [ ] **Step 2: Delete the two old page files**
+
+```bash
+git rm src/app/work/page.tsx src/app/how-we-work/page.tsx
+```
+
+- [ ] **Step 3: Remove the now-redundant `id="work"` from `Cases.tsx`'s outer section**
+
+This id was leftover from the original single-page site's same-page anchor nav and is no longer needed now that the page has its own route. Change:
+```tsx
+<section className="sec cases" id="work">
+```
+to
+```tsx
+<section className="sec cases">
+```
+Nothing else in `Cases.tsx` changes.
+
+- [ ] **Step 4: Update `Nav.tsx` — rename "Work" to "Who we are"**
+
+Change the `/work` link's href and label:
+```tsx
+<Link href="/work" onClick={() => setOpen(false)}>
+  Work
+</Link>
+```
+to
+```tsx
+<Link href="/who-we-are" onClick={() => setOpen(false)}>
+  Who we are
+</Link>
+```
+Nothing else in `Nav.tsx` changes (it never had a separate "How we work" link — that only ever lived in the footer).
+
+- [ ] **Step 5: Update `Footer.tsx` — collapse two links into one**
+
+Replace the `Work` and `How we work` links with a single `Who we are` link, keeping the same position and the other links unchanged:
+```tsx
+<nav className="footer-links">
+  <Link href="/services">Services</Link>
+  <Link href="/work">Work</Link>
+  <Link href="/how-we-work">How we work</Link>
+  <Link href="/health-check">Health check</Link>
+  <Link href="/privacy">Privacy</Link>
+</nav>
+```
+becomes
+```tsx
+<nav className="footer-links">
+  <Link href="/services">Services</Link>
+  <Link href="/who-we-are">Who we are</Link>
+  <Link href="/health-check">Health check</Link>
+  <Link href="/privacy">Privacy</Link>
+</nav>
+```
+
+- [ ] **Step 6: Update `WorkTeaser.tsx`'s links from `/work` to `/who-we-are`**
+
+The component still teases the case-study highlights specifically (kept as-is otherwise, including its file/export name to minimize churn) — only its two `Link` targets change:
+```tsx
+<Link href={`/work#${t.id}`} className="teaser-link teaser-link--dark">
+  Read the case →
+</Link>
+```
+becomes
+```tsx
+<Link href={`/who-we-are#${t.id}`} className="teaser-link teaser-link--dark">
+  Read the case →
+</Link>
+```
+and
+```tsx
+<Link href="/work" className="btn btn-ghost">
+  See all work <span className="arrow">→</span>
+</Link>
+```
+becomes
+```tsx
+<Link href="/who-we-are" className="btn btn-ghost">
+  See all work <span className="arrow">→</span>
+</Link>
+```
+(the button label itself — "See all work" — stays as-is; it reads fine pointing at the merged page.)
+
+- [ ] **Step 7: Update `sitemap.ts`**
+
+Remove the `/how-we-work` entry entirely, and change the `/work` entry's url to `/who-we-are`:
+```ts
+{ url: `${base}/work`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+{ url: `${base}/how-we-work`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+```
+becomes
+```ts
+{ url: `${base}/who-we-are`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+```
+
+- [ ] **Step 8: Verify**
+
+Run `pnpm exec tsc --noEmit` — expect no errors.
+
+Grep for any remaining reference to `/work` or `/how-we-work` as a link target across `src/`:
+```bash
+grep -rn '"/work"\|"/how-we-work"\|/work#\|/how-we-work#' src/
+```
+Expected: no matches (every reference should now point at `/who-we-are`).
+
+- [ ] **Step 9: Commit**
+
+```bash
+git add src/app/who-we-are/page.tsx src/components/sections/Nav.tsx src/components/sections/Footer.tsx src/components/sections/WorkTeaser.tsx src/components/sections/Cases.tsx src/app/sitemap.ts
+git commit -m "feat: merge /work and /how-we-work into /who-we-are"
+```
+
+---
+
+### Task 15: Health-check result lookup (re-send by email)
+
+**Context:** user-requested — a way to retrieve a completed health-check result again later (closed the tab, or wants to check it again in a few months). Confirmed approach: a small "look up my results" page where the visitor re-enters their email; the server re-sends the same computed result via the existing email helper. No accounts, no tokens — reuses Task 9's `sendHealthCheckResult` and Task 10's `health_check_responses` table. To avoid leaking which email addresses have a stored result (email enumeration), the endpoint always returns the same generic response whether or not a match was found.
+
+**Files:**
+- Create: `src/lib/health-check-lookup-schema.ts`
+- Create: `src/app/api/health-check/lookup/route.ts`
+- Create: `src/components/sections/HealthCheckLookup.tsx`
+- Create: `src/app/health-check/lookup/page.tsx`
+- Modify: `src/app/health-check/page.tsx`
+- Modify: `src/lib/resend.ts`
+- Modify: `src/app/sitemap.ts`
+
+**Interfaces:**
+- Consumes: `checkRateLimit` (existing), `getSupabaseServerClient` (existing), `scoreMaturityTier`/`getRecommendation` (Task 7), `sendHealthCheckResult` (Task 9) — reused unchanged, no signature changes.
+
+- [ ] **Step 1: Create `src/lib/health-check-lookup-schema.ts`**
+
+```ts
+import { z } from "zod";
+
+export const healthCheckLookupSchema = z.object({
+  email: z.string().trim().email().max(320),
+});
+
+export type HealthCheckLookupInput = z.infer<typeof healthCheckLookupSchema>;
+```
+
+- [ ] **Step 2: Create `src/app/api/health-check/lookup/route.ts`**
+
+```ts
+import { NextRequest, NextResponse } from "next/server";
+import { healthCheckLookupSchema } from "@/lib/health-check-lookup-schema";
+import { checkRateLimit } from "@/lib/rate-limit";
+import { getSupabaseServerClient } from "@/lib/supabase-server";
+import { scoreMaturityTier, getRecommendation } from "@/lib/health-check-scoring";
+import { sendHealthCheckResult } from "@/lib/resend";
+import type { Industry, TeamSize, Maturity, Budget } from "@/types/health-check";
+import type { IntentKey } from "@/types/intent";
+
+export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json({ ok: false, error: "Too many requests – please try again shortly." }, { status: 429 });
+  }
+
+  const body = await req.json().catch(() => null);
+  const parsed = healthCheckLookupSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json({ ok: false, error: "Please enter a valid email." }, { status: 400 });
+  }
+
+  const supabase = getSupabaseServerClient();
+  const { data } = await supabase
+    .from("health_check_responses")
+    .select("*")
+    .eq("email", parsed.data.email)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (data) {
+    const tier = scoreMaturityTier(data.team_size as TeamSize, data.maturity as Maturity, data.budget as Budget);
+    const recommendation = getRecommendation(data.aim as IntentKey, tier);
+    await sendHealthCheckResult({
+      name: data.name,
+      email: data.email,
+      industry: data.industry as Industry,
+      teamSize: data.team_size as TeamSize,
+      maturity: data.maturity as Maturity,
+      budget: data.budget as Budget,
+      aim: data.aim as IntentKey,
+      painPoint: data.pain_point ?? "",
+      honeypot: "",
+      tier,
+      recommendation,
+    }).catch(() => {});
+  }
+
+  // Always the same response whether or not a match was found - avoids
+  // leaking which email addresses have a stored result.
+  return NextResponse.json({ ok: true });
+}
+```
+
+- [ ] **Step 3: Create `src/components/sections/HealthCheckLookup.tsx`**
+
+```tsx
+"use client";
+import { useState, type FormEvent } from "react";
+
+export function HealthCheckLookup() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+    await fetch("/api/health-check/lookup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    setStatus("done");
+  }
+
+  if (status === "done") {
+    return (
+      <div className="hc-result">
+        <p>If we have a result for that email, we&apos;ve just sent it your way</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="hc-email-form">
+      <label>
+        Email
+        <input type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </label>
+      <button type="submit" className="btn btn-primary" disabled={status === "submitting"}>
+        {status === "submitting" ? "Looking…" : "Send my results"} <span className="arrow">→</span>
+      </button>
+    </form>
+  );
+}
+```
+
+- [ ] **Step 4: Create `src/app/health-check/lookup/page.tsx`**
+
+```tsx
+import { Nav } from "@/components/sections/Nav";
+import { HealthCheckLookup } from "@/components/sections/HealthCheckLookup";
+import { Footer } from "@/components/sections/Footer";
+
+export default function HealthCheckLookupPage() {
+  return (
+    <>
+      <Nav />
+      <section className="sec on-ink" style={{ background: "var(--ink)" }}>
+        <div className="wrap">
+          <div className="sec-head" style={{ margin: "0 auto 8px", textAlign: "center", maxWidth: "48ch" }}>
+            <span className="eyebrow" style={{ justifyContent: "center" }}>
+              Health check
+            </span>
+            <h2>Get your results resent</h2>
+            <p style={{ margin: "18px auto 0" }}>
+              Enter the email you used and we&apos;ll send your most recent health-check result again
+            </p>
+          </div>
+          <div style={{ maxWidth: 400, margin: "40px auto 0" }}>
+            <HealthCheckLookup />
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </>
+  );
+}
+```
+
+- [ ] **Step 5: Link the lookup page from the quiz page**
+
+In `src/app/health-check/page.tsx`, add a `next/link` import and a small link under the `<HealthCheckQuiz />` element:
+
+```tsx
+import Link from "next/link";
+import { Nav } from "@/components/sections/Nav";
+import { HealthCheckQuiz } from "@/components/sections/HealthCheckQuiz";
+import { Footer } from "@/components/sections/Footer";
+
+export default function HealthCheckPage() {
+  return (
+    <>
+      <Nav />
+      <section className="sec on-ink" style={{ background: "var(--ink)" }}>
+        <div className="wrap">
+          <div className="sec-head" style={{ margin: "0 auto 8px", textAlign: "center", maxWidth: "48ch" }}>
+            <span className="eyebrow" style={{ justifyContent: "center" }}>
+              Health check
+            </span>
+            <h2>Where does your audit function stand?</h2>
+            <p style={{ margin: "18px auto 0" }}>
+              Six quick questions. We&apos;ll tell you where you sit and the single best-fit next step – no
+              sales call required to see it.
+            </p>
+          </div>
+          <HealthCheckQuiz />
+          <p style={{ textAlign: "center", marginTop: 24, fontSize: ".85rem" }}>
+            <Link href="/health-check/lookup" style={{ color: "var(--paper-text-soft)" }}>
+              Already completed this? Get your results resent →
+            </Link>
+          </p>
+        </div>
+      </section>
+      <Footer />
+    </>
+  );
+}
+```
+
+- [ ] **Step 6: Add the lookup link to the result email**
+
+In `src/lib/resend.ts`, `sendHealthCheckResult`'s visitor-facing email `text` array gets one more line:
+
+```ts
+text: [
+  `Hi ${input.name},`,
+  "",
+  input.recommendation.headline,
+  input.recommendation.body,
+  "",
+  "Book a conversation: https://krealsolutions.co.uk/#contact",
+  "Look up this result again anytime: https://krealsolutions.co.uk/health-check/lookup",
+].join("\n"),
+```
+
+(This is the only change to `resend.ts` — the owner-notification email block below it is untouched.)
+
+- [ ] **Step 7: Add the lookup page to `sitemap.ts`**
+
+```ts
+{ url: `${base}/health-check/lookup`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+```
+
+- [ ] **Step 8: Verify**
+
+Run `pnpm exec tsc --noEmit` — expect no errors. This is a good check on the `data.team_size as TeamSize` etc. casts in the route handler — if `health-check-scoring.ts`'s function signatures ever change, a mismatch here would surface as a type error.
+
+- [ ] **Step 9: Commit**
+
+```bash
+git add src/lib/health-check-lookup-schema.ts src/app/api/health-check/lookup/route.ts src/components/sections/HealthCheckLookup.tsx src/app/health-check/lookup/page.tsx src/app/health-check/page.tsx src/lib/resend.ts src/app/sitemap.ts
+git commit -m "feat: add health-check result lookup (re-send by email)"
+```
+
+---
+
+### Task 16: Final manual QA pass — full site, post-restructure
+
+**Files:** none (verification only; fix forward in the relevant file if an issue is found).
+
+**Interfaces:** none.
+
+**Note on how to run this task:** same RAM constraint as Task 11 — run `pnpm dev -p 3002` and ask the user to check each item themselves in their own already-open browser, sharing screenshots back for review. Do not launch automated Chrome/Playwright tooling.
+
+This supersedes Task 11's checklist (which the user substantially covered via a live spot-check mid-plan) and covers everything built since, including Tasks 12-15.
+
+- [ ] **Step 1: Routing, full site**
+
+Every Nav link (Start here, Services, Who we are, Health check, Book a conversation) and every Footer link (Services, Who we are, Health check, Privacy) resolves correctly from every page, with no 404s. Confirm `/work` and `/how-we-work` no longer exist as routes (should 404 — they were deleted in Task 14).
+
+- [ ] **Step 2: `/who-we-are` content and order**
+
+Confirm the page reads in order: founder bio → approach → case studies → tech stack, and that the case-study cards no longer show a `case-tag`/`id="work"` artifact.
+
+- [ ] **Step 3: `/privacy`**
+
+Confirm the page renders, shows company number SC891005 and the registered-office placeholder clearly (not a fabricated address), and is reachable from the footer.
+
+- [ ] **Step 4: Health-check quiz, full flow**
+
+Complete the quiz end to end; confirm the result screen and "Book a conversation" handoff still work (unaffected by Tasks 12-15). Then visit `/health-check/lookup`, enter the same email, and confirm the generic confirmation message appears — verify via Supabase logs or the inbox that an email actually went out (or ask the user to check their inbox) since the UI response is intentionally the same whether or not a match was found.
+
+- [ ] **Step 5: Copy check**
+
+Skim the whole site once more for any remaining trailing period on a single-sentence block that Task 13 might have missed, and confirm `EnquiryForm.tsx`'s success message now reads "We'll get back to you..." not "I'll get back to you...".
+
+- [ ] **Step 6: Contact form and header tagline (regression check from Task 6)**
+
+Confirm both are still legible — unaffected by later tasks, but worth a quick re-check now that the page has been restructured further.
+
+- [ ] **Step 7: Responsive check**
+
+Resize to ~900px and ~600px on `/who-we-are` and `/health-check/lookup` specifically (the newest, least-tested layouts).
+
+- [ ] **Step 8: Record any fixes as their own commits**
+
+```bash
+git add <changed files>
+git commit -m "fix: <specific issue found during final QA>"
 ```
 
 ---
