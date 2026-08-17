@@ -247,6 +247,27 @@ footer .brand .dot{width:7px;height:7px}
 .footer-links a{color:var(--paper-text-soft);transition:color .2s}
 .footer-links a:hover{color:var(--paper-text)}
 
+/* HEALTH CHECK */
+.hc{padding:56px 0 20px;max-width:640px;margin:0 auto}
+.hc-progress{display:flex;gap:6px;margin-bottom:8px}
+.hc-progress span{height:4px;flex:1;background:var(--hair-ink);border-radius:2px}
+.hc-progress span.done{background:var(--assure)}
+.hc-step{background:var(--ink-2);border:1px solid var(--hair-ink);border-radius:14px;padding:40px}
+.hc-step h2{color:#fff;font-size:1.35rem;margin-bottom:20px}
+.hc-options{display:grid;gap:10px}
+.hc-option{font-family:var(--font-plex-sans),sans-serif;font-weight:600;font-size:.96rem;padding:14px 18px;border-radius:9px;border:1px solid var(--hair-ink);background:var(--ink);color:var(--paper-text);cursor:pointer;text-align:left;transition:border-color .2s,background .2s}
+.hc-option:hover{border-color:var(--assure)}
+.hc-select{width:100%;font-size:.98rem;padding:12px 14px;border-radius:9px;border:1px solid var(--hair-ink);background:var(--ink);color:var(--paper-text)}
+.hc-textarea{width:100%;font-family:var(--font-plex-sans),sans-serif;font-size:.96rem;padding:12px 14px;border-radius:9px;border:1px solid var(--hair-ink);background:var(--ink);color:var(--paper-text);resize:vertical}
+.hc-nav{display:flex;justify-content:space-between;margin-top:24px}
+.hc-email-form{display:flex;flex-direction:column;gap:14px}
+.hc-email-form label{display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:var(--paper-text-soft);text-align:left}
+.hc-email-form input{font-family:var(--font-plex-sans),sans-serif;font-size:.96rem;color:var(--paper-text);background:var(--ink);border:1px solid var(--hair-ink);border-radius:7px;padding:11px 13px}
+.hc-result{background:var(--ink-2);border:1px solid var(--hair-ink);color:#fff;border-radius:14px;padding:40px;max-width:640px;margin:0 auto;text-align:center}
+.hc-result .tier{font-family:var(--font-plex-mono),monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--assure)}
+.hc-result h2{color:#fff;font-size:1.6rem;margin:14px 0}
+.hc-result p{color:var(--paper-text);font-size:1.02rem;max-width:52ch;margin:0 auto}
+
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
