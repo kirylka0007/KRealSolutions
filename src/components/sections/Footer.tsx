@@ -15,7 +15,6 @@ export function Footer() {
           <Link href="/privacy">Privacy</Link>
         </nav>
         <span>Internal audit · data analytics · AI &nbsp;·&nbsp; Registered in Scotland, company no. SC891005</span>
-        <span>[registered office address – to be added]</span>
         <span>© {year} K Real Solutions Ltd</span>
       </div>
     </footer>
