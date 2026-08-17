@@ -55,6 +55,7 @@ export async function sendHealthCheckResult(input: HealthCheckResultInput) {
         input.recommendation.body,
         "",
         "Book a conversation: https://krealsolutions.co.uk/#contact",
+        "Look up this result again anytime: https://krealsolutions.co.uk/health-check/lookup",
       ].join("\n"),
     }),
   });

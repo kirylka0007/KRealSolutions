@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Nav } from "@/components/sections/Nav";
 import { HealthCheckQuiz } from "@/components/sections/HealthCheckQuiz";
 import { Footer } from "@/components/sections/Footer";
@@ -19,6 +20,11 @@ export default function HealthCheckPage() {
             </p>
           </div>
           <HealthCheckQuiz />
+          <p style={{ textAlign: "center", marginTop: 24, fontSize: ".85rem" }}>
+            <Link href="/health-check/lookup" style={{ color: "var(--paper-text-soft)" }}>
+              Already completed this? Get your results resent →
+            </Link>
+          </p>
         </div>
       </section>
       <Footer />
