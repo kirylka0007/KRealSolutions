@@ -10,8 +10,7 @@ export function Footer() {
         </span>
         <nav className="footer-links">
           <Link href="/services">Services</Link>
-          <Link href="/work">Work</Link>
-          <Link href="/how-we-work">How we work</Link>
+          <Link href="/who-we-are">Who we are</Link>
           <Link href="/health-check">Health check</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>

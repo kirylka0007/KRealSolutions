@@ -24,14 +24,14 @@ export function WorkTeaser() {
                 <span className="ml">{t.metricLabel}</span>
               </div>
               <h3>{t.title}</h3>
-              <Link href={`/work#${t.id}`} className="teaser-link teaser-link--dark">
+              <Link href={`/who-we-are#${t.id}`} className="teaser-link teaser-link--dark">
                 Read the case →
               </Link>
             </Reveal>
           ))}
         </div>
         <div className="teaser-cta">
-          <Link href="/work" className="btn btn-ghost">
+          <Link href="/who-we-are" className="btn btn-ghost">
             See all work <span className="arrow">→</span>
           </Link>
         </div>

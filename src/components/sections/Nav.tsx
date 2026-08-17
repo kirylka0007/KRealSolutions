@@ -30,8 +30,8 @@ export function Nav() {
           <Link href="/services" onClick={() => setOpen(false)}>
             Services
           </Link>
-          <Link href="/work" onClick={() => setOpen(false)}>
-            Work
+          <Link href="/who-we-are" onClick={() => setOpen(false)}>
+            Who we are
           </Link>
           <Link href="/health-check" onClick={() => setOpen(false)}>
             Health check

@@ -14,7 +14,7 @@ const CASES = [
 
 export function Cases() {
   return (
-    <section className="sec cases" id="work">
+    <section className="sec cases">
       <div className="wrap">
         <Reveal as="div" className="sec-head">
           <span className="eyebrow">Selected work</span>

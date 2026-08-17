@@ -20,7 +20,7 @@ export function Hero() {
             <a href="/#contact" className="btn btn-primary">
               Book a conversation <span className="arrow">→</span>
             </a>
-            <a href="/work" className="btn btn-ghost">
+            <a href="/who-we-are" className="btn btn-ghost">
               See the work
             </a>
           </div>
