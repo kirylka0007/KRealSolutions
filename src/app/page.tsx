@@ -3,7 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Chooser } from "@/components/sections/Chooser";
 import { Coverage } from "@/components/sections/Coverage";
 import { Positioning } from "@/components/sections/Positioning";
-import { Services } from "@/components/sections/Services";
+import { ServicesTeaser } from "@/components/sections/ServicesTeaser";
 import { Cases } from "@/components/sections/Cases";
 import { TechStrip } from "@/components/sections/TechStrip";
 import { Approach } from "@/components/sections/Approach";
@@ -18,7 +18,7 @@ export default function Home() {
       <Chooser />
       <Coverage />
       <Positioning />
-      <Services />
+      <ServicesTeaser />
       <Cases />
       <TechStrip />
       <Approach />
