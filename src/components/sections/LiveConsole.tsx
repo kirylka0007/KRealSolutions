@@ -1,85 +1,38 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useCountUp } from "@/hooks/useCountUp";
 
-const PROCS = [
-  "Trade reconciliation", "Corporate action", "Access review", "PDF authorisation",
-  "Expense claim", "Journal posting", "Vendor onboarding", "Client report",
-  "Payment run", "Fund pricing", "Segregation of duties", "Sanctions screening",
-  "Fee calculation", "Data lineage check",
+const SNAPSHOT: Array<{ id: string; proc: string; isExc: boolean }> = [
+  { id: "CTL-1478", proc: "Sanctions screening", isExc: false },
+  { id: "CTL-1340", proc: "Data lineage check", isExc: false },
+  { id: "CTL-7537", proc: "Access review", isExc: true },
+  { id: "CTL-7894", proc: "Journal posting", isExc: false },
+  { id: "CTL-7501", proc: "Expense claim", isExc: false },
+  { id: "CTL-8815", proc: "Fee calculation", isExc: false },
 ];
-const STATIC_SNAPSHOT: Array<[string, boolean]> = [
-  ["Trade reconciliation", false], ["Corporate action", false], ["Access review", true],
-  ["Journal posting", false], ["Fund pricing", false], ["Client report", false],
-];
-const MAX_ROWS = 6;
-
-function fmt(v: number) {
-  return v.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-function randomId() {
-  return "CTL-" + String(Math.floor(Math.random() * 9999)).padStart(4, "0");
-}
-
-type Row = { id: string; proc: string; isExc: boolean; key: string };
 
 export function LiveConsole() {
-  const reduced = useReducedMotion();
-  const [rows, setRows] = useState<Row[]>([]);
-  const [controls, setControls] = useState(12840);
-  const [exceptions, setExceptions] = useState(37);
-  const keyCounter = useRef(0);
-
-  useEffect(() => {
-    if (reduced) {
-      setRows(
-        STATIC_SNAPSHOT.map(([proc, isExc]) => ({
-          id: randomId(),
-          proc,
-          isExc,
-          key: String(keyCounter.current++),
-        }))
-      );
-      return;
-    }
-
-    function addRow() {
-      const isExc = Math.random() < 0.16;
-      setRows((prev) => [
-        { id: randomId(), proc: PROCS[Math.floor(Math.random() * PROCS.length)], isExc, key: String(keyCounter.current++) },
-        ...prev,
-      ].slice(0, MAX_ROWS));
-      setControls((c) => c + Math.floor(Math.random() * 7) + 3);
-      if (isExc) setExceptions((e) => e + 1);
-    }
-
-    for (let i = 0; i < MAX_ROWS; i++) addRow();
-    const id = setInterval(addRow, 1700);
-    return () => clearInterval(id);
-  }, [reduced]);
+  const controls = useCountUp(true, 12840);
+  const exceptions = useCountUp(true, 37);
 
   return (
     <div className="console reveal in" aria-hidden="true">
       <div className="console-bar">
         <span className="title">Continuous controls monitor</span>
-        <span className="live">
-          <i />
-          LIVE
-        </span>
+        <span className="illustrative">Illustrative</span>
       </div>
       <div className="console-stats">
         <div className="cs">
-          <div className="n">{fmt(controls)}</div>
+          <div className="n">{controls}</div>
           <div className="l">Controls evaluated today</div>
         </div>
         <div className="cs exc">
-          <div className="n">{fmt(exceptions)}</div>
+          <div className="n">{exceptions}</div>
           <div className="l">Exceptions auto-flagged</div>
         </div>
       </div>
       <div className="feed">
-        {rows.map((row) => (
-          <div key={row.key} className={`feed-row${row.isExc ? " is-exc" : ""}`}>
+        {SNAPSHOT.map((row) => (
+          <div key={row.id} className={`feed-row${row.isExc ? " is-exc" : ""}`}>
             <span className="id">{row.id}</span>
             <span className="proc">{row.proc}</span>
             {row.isExc ? (
@@ -90,6 +43,7 @@ export function LiveConsole() {
           </div>
         ))}
       </div>
+      <p className="console-caption">Illustrative view of a continuous controls monitoring scorecard. Not live data</p>
     </div>
   );
 }

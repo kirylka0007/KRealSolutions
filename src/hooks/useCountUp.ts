@@ -12,7 +12,11 @@ export function useCountUp(
   { decimals = 0, prefix = "", suffix = "", duration = 1500 } = {}
 ) {
   const reduced = useReducedMotion();
-  const [text, setText] = useState(prefix + fmt(0, decimals) + suffix);
+  // Initial state is the final value, not 0 - this is what a no-JS client or a
+  // failed reveal-trigger renders permanently, so it must already be correct.
+  // The count-up animation below is a progressive client-side enhancement on
+  // top of that correct fallback, not a replacement for it.
+  const [text, setText] = useState(prefix + fmt(target, decimals) + suffix);
 
   useEffect(() => {
     if (!active || reduced) return;

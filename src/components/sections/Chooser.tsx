@@ -60,7 +60,7 @@ const PANELS: Panel[] = [
         Where we&apos;d start: <a href="/services#euc">Self-Service Analytics Assurance</a> ·{" "}
         <a href="/services#auto">Audit &amp; Analytics Automation</a>
         <br />
-        Context: 88% of business spreadsheets contain errors (Panko / EuSpRIG)
+        Context: long-standing research finds ~88% of business spreadsheets contain errors (Panko / EuSpRIG)
       </>
     ),
     offerTitle: "Analytics-estate health check",

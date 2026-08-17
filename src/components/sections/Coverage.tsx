@@ -6,7 +6,7 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { DotGridPast, DotGridNow } from "./DotGrid";
 
 export function Coverage() {
-  const [nowPct, setNowPct] = useState(0);
+  const [nowPct, setNowPct] = useState(100);
   const { ref: payoffRef, revealed: payoffRevealed } = useReveal<HTMLDivElement>();
   const payoffText = useCountUp(payoffRevealed, 53, { suffix: "%" });
 
@@ -45,7 +45,7 @@ export function Coverage() {
         <div ref={payoffRef} className={`cov-payoff reveal${payoffRevealed ? " in" : ""}`}>
           <div className="big">{payoffText}</div>
           <div>
-            <div className="txt">lower fraud losses at organisations that use proactive data analytics as a control, versus those that don&apos;t</div>
+            <div className="txt">lower median fraud loss ($150,000 vs $70,000) at organisations that use proactive data monitoring, versus those that don&apos;t</div>
             <div className="src">ACFE · Report to the Nations 2026</div>
           </div>
         </div>

@@ -27,20 +27,24 @@ export function DotGridNow({
   onPctChange: (pct: number) => void;
 }) {
   const reduced = useReducedMotion();
-  const [filled, setFilled] = useState<Cell[]>(Array(TOTAL).fill(""));
+  // Default to the fully-filled final state, not empty - this is what a
+  // no-JS client or a failed reveal-trigger renders permanently. The fill
+  // animation below resets to empty and replays only as a client-side
+  // enhancement once the element is actually revealed.
+  const [filled, setFilled] = useState<Cell[]>(
+    Array.from({ length: TOTAL }, (_, i) => (i === EXC_IDX ? "flagged" : "on"))
+  );
   const ref = useRef<HTMLDivElement | null>(null);
   const started = useRef(false);
 
   useEffect(() => {
+    onPctChange(100);
     const el = ref.current;
-    if (!el) return;
+    if (!el || reduced) return;
 
     function fillNow() {
-      if (reduced) {
-        setFilled(Array.from({ length: TOTAL }, (_, i) => (i === EXC_IDX ? "flagged" : "on")));
-        onPctChange(100);
-        return;
-      }
+      setFilled(Array(TOTAL).fill(""));
+      onPctChange(0);
       for (let i = 0; i < TOTAL; i++) {
         setTimeout(() => {
           setFilled((prev) => {
@@ -59,11 +63,6 @@ export function DotGridNow({
         else onPctChange(100);
       }
       requestAnimationFrame(tick);
-    }
-
-    if (reduced) {
-      fillNow();
-      return;
     }
 
     const io = new IntersectionObserver(
