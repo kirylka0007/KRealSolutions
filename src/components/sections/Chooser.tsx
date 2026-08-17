@@ -21,7 +21,7 @@ const PANELS: Panel[] = [
     ix: "01",
     label: "Get value from GenAI in audit",
     heading: "You know GenAI could help audit. You need it to actually land – safely.",
-    desc: "We find the highest-value uses across your audit lifecycle – document and policy review, fraud indicators, risk assessment, QA and reporting – and build them to run in a regulated environment, with a human in the loop.",
+    desc: "We find the highest-value uses across your audit lifecycle – document and policy review, fraud indicators, risk assessment, QA and reporting – and build them to run in a regulated environment, with a human in the loop",
     rel: (
       <>
         Where we&apos;d start: <a href="/services#genai">GenAI for Internal Audit</a>
@@ -37,7 +37,7 @@ const PANELS: Panel[] = [
     ix: "02",
     label: "Start our data-analytics journey",
     heading: "Your team is ready to start with analytics – but not sure where.",
-    desc: "We help audit teams take the first steps: quick wins that build confidence, a practical roadmap, and hands-on training so the capability stays with your people, not with a contractor.",
+    desc: "We help audit teams take the first steps: quick wins that build confidence, a practical roadmap, and hands-on training so the capability stays with your people, not with a contractor",
     rel: (
       <>
         Where we&apos;d start: <a href="/services#auto">Audit &amp; Analytics Automation</a> ·{" "}
@@ -54,7 +54,7 @@ const PANELS: Panel[] = [
     ix: "03",
     label: "Get more from tools we own",
     heading: "You've bought Alteryx, Power BI and Power Automate. Are they earning their keep?",
-    desc: "We review what's already been built – for value, control weaknesses and key-person risk – govern the self-service estate, and unlock the use cases the licences were bought for in the first place.",
+    desc: "We review what's already been built – for value, control weaknesses and key-person risk – govern the self-service estate, and unlock the use cases the licences were bought for in the first place",
     rel: (
       <>
         Where we&apos;d start: <a href="/services#euc">Self-Service Analytics Assurance</a> ·{" "}
@@ -71,7 +71,7 @@ const PANELS: Panel[] = [
     ix: "04",
     label: "Move to continuous assurance",
     heading: "Point-in-time testing is leaving gaps. You want always-on coverage.",
-    desc: "We design and build continuous controls monitoring – data feeds blended and scored, exceptions flagged and routed to the right auditor automatically – so you move from a sample to the full population.",
+    desc: "We design and build continuous controls monitoring – data feeds blended and scored, exceptions flagged and routed to the right auditor automatically – so you move from a sample to the full population",
     rel: (
       <>
         Where we&apos;d start: <a href="/services#ccm">Continuous Assurance &amp; Controls Monitoring</a>
@@ -113,7 +113,7 @@ export function Chooser() {
         <Reveal as="div" className="sec-head">
           <span className="eyebrow">Start here</span>
           <h2>What do you want to solve?</h2>
-          <p>Pick the one that sounds most like you – we&apos;ll show you where we&apos;d start, and a no-cost way in.</p>
+          <p>Pick the one that sounds most like you – we&apos;ll show you where we&apos;d start, and a no-cost way in</p>
         </Reveal>
         <Reveal as="div" className="chooser">
           <div className="chooser-btns" role="tablist">

@@ -9,7 +9,7 @@ export function Contact() {
           Let&apos;s talk
         </span>
         <h2>Where could continuous assurance take your function?</h2>
-        <p>A short, no-obligation conversation about your controls, your data, and where AI and automation would actually move the needle.</p>
+        <p>A short, no-obligation conversation about your controls, your data, and where AI and automation would actually move the needle</p>
         <div className="free-lead">
           <span className="eyebrow" style={{ justifyContent: "center", color: "var(--assure)" }}>
             Free ways to start
@@ -19,7 +19,7 @@ export function Contact() {
           <a href="/health-check" className="f">
             <span className="tag">No cost</span>
             <h4>Health check</h4>
-            <p>Six quick questions – see where you stand and the single best-fit next step, instantly.</p>
+            <p>Six quick questions – see where you stand and the single best-fit next step, instantly</p>
           </a>
           <div className="f">
             <span className="tag">No cost</span>
@@ -29,7 +29,7 @@ export function Contact() {
           <div className="f">
             <span className="tag">Included</span>
             <h4>Training &amp; upskilling</h4>
-            <p>Hands-on sessions so your auditors build and review analytics themselves – the capability stays in-house.</p>
+            <p>Hands-on sessions so your auditors build and review analytics themselves – the capability stays in-house</p>
           </div>
         </div>
 

@@ -14,7 +14,7 @@ export function Hero() {
           <p className="lede">
             We help internal audit and assurance teams in regulated financial services replace
             manual, point-in-time testing with continuous, AI-augmented assurance – built by a
-            team that combines audit qualification with data science.
+            team that combines audit qualification with data science
           </p>
           <div className="hero-cta">
             <a href="/#contact" className="btn btn-primary">

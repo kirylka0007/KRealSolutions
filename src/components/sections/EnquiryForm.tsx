@@ -52,7 +52,7 @@ export function EnquiryForm() {
     return (
       <div className="offer" role="status">
         <h4>Thanks – that&apos;s landed</h4>
-        <p>I&apos;ll get back to you shortly to find a time to talk.</p>
+        <p>We&apos;ll get back to you shortly to find a time to talk</p>
       </div>
     );
   }
