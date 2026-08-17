@@ -33,7 +33,7 @@
 - Voice sweep to "we" across `Hero`, `Chooser`, `Coverage`, `Services`, `Cases`, `Approach` (and the new teaser components). `Positioning` becomes third-person: rewritten as a short founder bio for `/how-we-work` instead of first-person "I sit in the overlap..." — content (FCCA, MSc Data Science, 15 years, Big 4, production AI at a regulated asset manager) stays, framing changes to "Founded by Kiryl — ...".
 - Hero headline/subhead get a sharper catchphrase + problem statement rewrite. I'll draft 2-3 options for the user to pick from rather than silently replacing the current headline — this is the single highest-visibility piece of copy on the site.
 - Remove `case-tag` (`CCM-01` etc.) rendering from `Cases.tsx` entirely — the `cap` field (e.g. "Continuous monitoring") already covers the plain-word category and stays. Remove the `no` field (`"01 / CCM"` etc.) and its `<span className="no">` rendering from `Services.tsx` entirely too — titles are self-explanatory without a numeric/code prefix.
-- Sweep for any remaining trailing periods on single-sentence standalone labels/headings across all touched files (same style rule as the prior copy-fix commit).
+- Sweep for any remaining trailing periods on single-sentence standalone text across all touched files, not just headings — category/tag labels (e.g. case-card `cap` values, quiz answer options, maturity-tier names), button/CTA text, and any other short standalone strings, in addition to headings (same style rule as the prior copy-fix commit).
 
 ## Interactive health assessment
 
@@ -41,7 +41,7 @@ New route `src/app/health-check/page.tsx`, new client component `HealthCheckQuiz
 
 **Questions (all required, single-select except Q6):**
 
-1. Industry — Banking / Asset management / Insurance / Other regulated FS / Non-FS
+1. Industry — Banking / Asset & investment management / Insurance / Other regulated financial services / Manufacturing / Retail & consumer / Public sector & government / Healthcare / Technology & software / Energy & utilities / Other. Rendered as a dropdown rather than a button-grid (unlike Q2-5) given the option count.
 2. Audit team size — 1-5 / 6-15 / 16-50 / 50+
 3. Current D&A maturity — None yet / Spreadsheets & BI / Some automation / Advanced
 4. Analytics/AI budget appetite — Exploring only / Small pilot budget / Dedicated budget
