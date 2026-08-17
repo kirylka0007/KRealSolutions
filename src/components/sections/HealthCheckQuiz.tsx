@@ -144,7 +144,7 @@ export function HealthCheckQuiz() {
 
         {step === 2 && (
           <>
-            <h2>What's your current data & analytics maturity?</h2>
+            <h2>What&apos;s your current data & analytics maturity?</h2>
             <div className="hc-options">
               {(Object.keys(MATURITY_LABELS) as Maturity[]).map((key) => (
                 <button key={key} className="hc-option" onClick={() => selectAndAdvance("maturity", key)}>
@@ -157,7 +157,7 @@ export function HealthCheckQuiz() {
 
         {step === 3 && (
           <>
-            <h2>What's your analytics/AI budget appetite?</h2>
+            <h2>What&apos;s your analytics/AI budget appetite?</h2>
             <div className="hc-options">
               {(Object.keys(BUDGET_LABELS) as Budget[]).map((key) => (
                 <button key={key} className="hc-option" onClick={() => selectAndAdvance("budget", key)}>
@@ -170,7 +170,7 @@ export function HealthCheckQuiz() {
 
         {step === 4 && (
           <>
-            <h2>What's your primary aim?</h2>
+            <h2>What&apos;s your primary aim?</h2>
             <div className="hc-options">
               {(Object.keys(INTENT_LABELS) as IntentKey[]).map((key) => (
                 <button key={key} className="hc-option" onClick={() => selectAndAdvance("aim", key)}>
@@ -183,7 +183,7 @@ export function HealthCheckQuiz() {
 
         {step === 5 && (
           <>
-            <h2>What's your biggest current pain point?</h2>
+            <h2>What&apos;s your biggest current pain point?</h2>
             <textarea
               className="hc-textarea"
               rows={4}
