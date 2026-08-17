@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -7,10 +8,10 @@ export function Nav() {
   return (
     <nav className="nav">
       <div className="wrap nav-in">
-        <a href="#top" className="brand">
+        <Link href="/#top" className="brand">
           <span className="dot" />K&nbsp;REAL&nbsp;SOLUTIONS{" "}
           <small>Audit&nbsp;·&nbsp;Analytics&nbsp;·&nbsp;AI</small>
-        </a>
+        </Link>
         <button
           className="burger"
           aria-label="Menu"
@@ -23,18 +24,21 @@ export function Nav() {
           <span />
         </button>
         <div className={`nav-links${open ? " open" : ""}`} id="navlinks">
-          <a href="#start" onClick={() => setOpen(false)}>
+          <Link href="/#start" onClick={() => setOpen(false)}>
             Start here
-          </a>
-          <a href="#services" onClick={() => setOpen(false)}>
+          </Link>
+          <Link href="/services" onClick={() => setOpen(false)}>
             Services
-          </a>
-          <a href="#work" onClick={() => setOpen(false)}>
-            Selected work
-          </a>
-          <a href="#contact" className="nav-cta" onClick={() => setOpen(false)}>
+          </Link>
+          <Link href="/work" onClick={() => setOpen(false)}>
+            Work
+          </Link>
+          <Link href="/health-check" onClick={() => setOpen(false)}>
+            Health check
+          </Link>
+          <Link href="/#contact" className="nav-cta" onClick={() => setOpen(false)}>
             Book a conversation
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

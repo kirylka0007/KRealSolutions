@@ -231,6 +231,9 @@ footer{background:#081b22;color:var(--paper-text-soft);font-size:.82rem}
 footer .wrap{padding:32px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
 footer .brand{color:var(--paper-text-soft);font-size:.9rem}
 footer .brand .dot{width:7px;height:7px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:var(--paper-text-soft);transition:color .2s}
+.footer-links a:hover{color:var(--paper-text)}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
