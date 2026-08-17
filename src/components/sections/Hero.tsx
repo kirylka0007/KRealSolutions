@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { LiveConsole } from "./LiveConsole";
 
@@ -14,23 +15,23 @@ export function Hero() {
           <p className="lede">
             We design and build continuous, AI-driven assurance solutions for internal audit and
             wider assurance functions in regulated financial services – replacing manual,
-            point-in-time testing with always-on coverage, built by a team that combines audit
-            qualification with data science
+            point-in-time testing with always-on coverage, built by an FCCA-qualified auditor with
+            an MSc in Data Science
           </p>
           <div className="hero-cta">
-            <a href="/#contact" className="btn btn-primary">
+            <Link href="/#contact" className="btn btn-primary">
               Book a conversation <span className="arrow">→</span>
-            </a>
-            <a href="/who-we-are" className="btn btn-ghost">
+            </Link>
+            <Link href="/who-we-are" className="btn btn-ghost">
               See the work
-            </a>
+            </Link>
           </div>
           <div className="creds">
             <span>Based in Edinburgh, UK</span>
             <span>FCCA qualified</span>
             <span>MSc Data Science (Distinction)</span>
             <span>15+ yrs financial services &amp; Big 4</span>
-            <span>Production AI in a regulated asset manager</span>
+            <span>Production AI in a regulated financial-services firm</span>
           </div>
         </Reveal>
         <LiveConsole />
