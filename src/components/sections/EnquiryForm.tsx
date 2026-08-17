@@ -11,10 +11,14 @@ export function EnquiryForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedIntent, setSelectedIntent] = useState<IntentKey | "">(intent ?? "");
+  const [expanded, setExpanded] = useState(!!intent);
   const [prevIntent, setPrevIntent] = useState(intent);
   if (intent !== prevIntent) {
     setPrevIntent(intent);
-    if (intent) setSelectedIntent(intent);
+    if (intent) {
+      setSelectedIntent(intent);
+      setExpanded(true);
+    }
   }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -73,33 +77,41 @@ export function EnquiryForm() {
           Email *
           <input type="email" name="email" required autoComplete="email" />
         </label>
-        <label>
-          Organisation
-          <input type="text" name="organisation" autoComplete="organization" />
-        </label>
-        <label>
-          Role
-          <input type="text" name="role" />
-        </label>
-        <label>
-          What would you like to talk about?
-          <select
-            name="intent"
-            value={selectedIntent}
-            onChange={(e) => setSelectedIntent(e.target.value as IntentKey | "")}
-          >
-            <option value="">Not sure yet</option>
-            {(Object.keys(INTENT_LABELS) as IntentKey[]).map((key) => (
-              <option key={key} value={key}>
-                {INTENT_LABELS[key]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows={4} />
-        </label>
+        {expanded ? (
+          <>
+            <label>
+              Organisation
+              <input type="text" name="organisation" autoComplete="organization" />
+            </label>
+            <label>
+              Role
+              <input type="text" name="role" />
+            </label>
+            <label>
+              What would you like to talk about?
+              <select
+                name="intent"
+                value={selectedIntent}
+                onChange={(e) => setSelectedIntent(e.target.value as IntentKey | "")}
+              >
+                <option value="">Not sure yet</option>
+                {(Object.keys(INTENT_LABELS) as IntentKey[]).map((key) => (
+                  <option key={key} value={key}>
+                    {INTENT_LABELS[key]}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows={4} />
+            </label>
+          </>
+        ) : (
+          <button type="button" className="toggle-more" onClick={() => setExpanded(true)}>
+            + Add organisation, role, topic and a message
+          </button>
+        )}
 
         {status === "error" && (
           <p role="alert" style={{ color: "var(--exception-red)" }}>

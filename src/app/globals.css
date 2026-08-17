@@ -245,6 +245,8 @@ a{color:inherit;text-decoration:none}
 .enquiry-form input,.enquiry-form select,.enquiry-form textarea{font-family:var(--font-plex-sans),sans-serif;font-size:.96rem;color:var(--paper-text);background:var(--ink-2);border:1px solid var(--hair-ink);border-radius:7px;padding:11px 13px;transition:border-color .2s}
 .enquiry-form input:focus,.enquiry-form select:focus,.enquiry-form textarea:focus{outline:none;border-color:var(--assure)}
 .enquiry-form textarea{resize:vertical}
+.enquiry-form .toggle-more{background:none;border:1px dashed var(--hair-ink);border-radius:7px;color:var(--assure);font-family:var(--font-plex-mono),monospace;font-size:.8rem;cursor:pointer;text-align:left;padding:11px 13px;transition:border-color .2s,color .2s}
+.enquiry-form .toggle-more:hover{border-color:var(--assure);color:var(--assure-bright)}
 
 footer{background:#081b22;color:var(--paper-text-soft);font-size:.82rem}
 footer .wrap{padding:32px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
