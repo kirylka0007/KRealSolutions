@@ -43,7 +43,7 @@ a{color:inherit;text-decoration:none}
 /* HERO */
 .hero{background:var(--ink);color:var(--paper-text);position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 90% 4%,rgba(18,165,148,.15),transparent 55%);pointer-events:none}
-.hero-in{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center;padding:70px 0 80px;position:relative;z-index:1}
+.hero-in{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center;padding-top:70px;padding-bottom:80px;position:relative;z-index:1}
 .hero h1{font-size:clamp(2.5rem,5.3vw,4.05rem);color:#fff;margin:22px 0 0;font-weight:900}
 .hero h1 .em{color:var(--assure)}
 .hero .lede{font-size:1.12rem;color:var(--paper-text);max-width:38ch;margin-top:22px}
@@ -281,7 +281,7 @@ footer .brand .dot{width:7px;height:7px}
 .reveal.in{opacity:1;transform:none}
 
 @media(max-width:940px){
-  .hero-in{grid-template-columns:1fr;gap:38px;padding:52px 0 60px}
+  .hero-in{grid-template-columns:1fr;gap:38px;padding-top:52px;padding-bottom:60px}
   .positioning .grid{grid-template-columns:1fr;gap:26px}
   .svc-grid{grid-template-columns:1fr}
   .svc--wide{grid-template-columns:1fr;gap:16px}
