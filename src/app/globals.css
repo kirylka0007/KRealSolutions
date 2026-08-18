@@ -37,7 +37,7 @@ a{color:inherit;text-decoration:none}
 .nav-links a:hover{color:var(--paper-text)}
 .nav-cta{color:var(--ink)!important;background:var(--assure);padding:9px 16px;border-radius:6px;font-weight:600;font-size:.86rem;transition:transform .2s,background .2s}
 .nav-cta:hover{background:var(--assure-bright);transform:translateY(-1px)}
-.burger{display:none;background:none;border:0;cursor:pointer;width:34px;height:34px}
+.burger{display:none;background:none;border:0;cursor:pointer;width:34px;height:34px;flex:none}
 .burger span{display:block;height:2px;background:var(--paper-text);margin:6px 4px;transition:.25s}
 
 /* HERO */
@@ -294,6 +294,7 @@ footer .brand .dot{width:7px;height:7px}
   .nav-links a{padding:15px 28px;width:100%}
   .nav-links .nav-cta{margin:12px 28px;text-align:center}
   .burger{display:block}
+  .brand small{display:none}
 }
 @media(max-width:560px){
   .sec{padding:66px 0}
