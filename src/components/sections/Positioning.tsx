@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 
 export function Positioning() {
@@ -5,11 +6,13 @@ export function Positioning() {
     <section className="positioning">
       <div className="wrap">
         <Reveal as="div" className="principal">
-          <div className="principal-photo" aria-hidden="true">
-            {/* TODO [HUMAN INPUT]: add a headshot to /public/kiryl.jpg (min 800x800) and
-                replace this placeholder with:
-                <Image src="/kiryl.jpg" alt="Kiryl Katushkin" width={120} height={120} /> */}
-          </div>
+          <Image
+            src="/kiryl.jpg"
+            alt="Kiryl Katushkin"
+            width={120}
+            height={120}
+            className="principal-photo"
+          />
           <div>
             <div className="principal-name">Kiryl Katushkin, FCCA</div>
             <a

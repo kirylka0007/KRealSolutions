@@ -15,7 +15,7 @@ export default function PrivacyPage() {
             <div>
               <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: 10 }}>Who we are</h2>
               <p>
-                K Real Solutions Ltd (company number SC891005, registered in Scotland) operates this website. For anything relating to this policy, contact us at{" "}
+                K Real Solutions Ltd (company number SC891005, registered office 7 Flint Terrace, Edinburgh, EH15 1AE) operates this website. For anything relating to this policy, contact us at{" "}
                 <a href="mailto:info@krealsolutions.co.uk" style={{ color: "var(--assure-deep)" }}>
                   info@krealsolutions.co.uk
                 </a>
