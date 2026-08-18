@@ -148,7 +148,9 @@ a{color:inherit;text-decoration:none}
 .svc-engagement{margin-top:18px;padding-top:16px;border-top:1px solid var(--hair);display:grid;gap:6px}
 .svc-engagement p{font-size:.86rem;color:var(--text-soft);line-height:1.5}
 .svc-engagement b{font-family:var(--font-plex-mono),monospace;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--assure-deep);display:block;margin-bottom:2px}
-.working-with-us{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px}
+.working-with-us-panel{background:var(--ink);border-radius:14px;padding:36px;margin-top:44px}
+.working-with-us-panel h3{font-size:1.3rem;margin-top:12px}
+.working-with-us{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:28px}
 .working-with-us b{font-family:var(--font-plex-mono),monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--assure);display:block;margin-bottom:8px}
 .working-with-us p{color:var(--paper-text);font-size:.94rem;line-height:1.5}
 @media(max-width:940px){.working-with-us{grid-template-columns:1fr 1fr}}

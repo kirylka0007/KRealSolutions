@@ -56,6 +56,28 @@ export function Services() {
           <h2>Four delivery lines, two advisory lines</h2>
           <p>Capabilities that modernise your assurance – plus two advisory lines that govern the tools you already have and turn stakeholder engagement into risk intelligence. Every engagement includes knowledge transfer, so your team owns what we deliver.</p>
         </Reveal>
+        <Reveal as="div" className="working-with-us-panel on-ink">
+          <span className="eyebrow">Terms</span>
+          <h3>Working with us</h3>
+          <div className="working-with-us">
+            <div>
+              <b>Engagement basis</b>
+              <p>Outside IR35, fixed-fee statement of work – no day-rate staffing arrangements</p>
+            </div>
+            <div>
+              <b>Indicative first engagement</b>
+              <p>Diagnostic from £1,500, fixed fee</p>
+            </div>
+            <div>
+              <b>Knowledge transfer</b>
+              <p>Documentation and upskilling are included in every engagement, not an add-on</p>
+            </div>
+            <div>
+              <b>Location</b>
+              <p>Based in Edinburgh; works remotely across the UK and on site as required</p>
+            </div>
+          </div>
+        </Reveal>
         <div className="svc-grid">
           {SERVICES.map((s) => (
             <Reveal as="article" className="svc" id={s.id} key={s.id}>
@@ -140,37 +162,6 @@ export function Services() {
               </div>
             </div>
           </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function ServicesWorkingWithUs() {
-  return (
-    <section className="sec on-ink" style={{ background: "var(--ink)" }}>
-      <div className="wrap">
-        <Reveal as="div" className="sec-head">
-          <span className="eyebrow">Terms</span>
-          <h2>Working with us</h2>
-        </Reveal>
-        <div className="working-with-us">
-          <div>
-            <b>Engagement basis</b>
-            <p>Outside IR35, fixed-fee statement of work – no day-rate staffing arrangements</p>
-          </div>
-          <div>
-            <b>Indicative first engagement</b>
-            <p>Diagnostic from £1,500, fixed fee</p>
-          </div>
-          <div>
-            <b>Knowledge transfer</b>
-            <p>Documentation and upskilling are included in every engagement, not an add-on</p>
-          </div>
-          <div>
-            <b>Location</b>
-            <p>Based in Edinburgh; works remotely across the UK and on site as required</p>
-          </div>
         </div>
       </div>
     </section>

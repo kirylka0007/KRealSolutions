@@ -1,5 +1,5 @@
 import { Nav } from "@/components/sections/Nav";
-import { Services, ServicesWorkingWithUs } from "@/components/sections/Services";
+import { Services } from "@/components/sections/Services";
 import { Footer } from "@/components/sections/Footer";
 
 export default function ServicesPage() {
@@ -7,7 +7,6 @@ export default function ServicesPage() {
     <>
       <Nav />
       <Services />
-      <ServicesWorkingWithUs />
       <Footer />
     </>
   );
