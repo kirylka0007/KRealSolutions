@@ -36,7 +36,7 @@ export function Contact() {
         <div style={{ marginTop: 40 }}>
           <EnquiryForm />
         </div>
-        <div className="mailto">info@krealsolutions.co.uk</div>
+        <div className="mailto">kiryl@krealsolutions.co.uk</div>
       </Reveal>
     </section>
   );

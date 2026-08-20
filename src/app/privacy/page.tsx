@@ -16,8 +16,8 @@ export default function PrivacyPage() {
               <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: 10 }}>Who we are</h2>
               <p>
                 K Real Solutions Ltd (company number SC891005, registered office 7 Flint Terrace, Edinburgh, EH15 1AE) operates this website. For anything relating to this policy, contact us at{" "}
-                <a href="mailto:info@krealsolutions.co.uk" style={{ color: "var(--assure-deep)" }}>
-                  info@krealsolutions.co.uk
+                <a href="mailto:kiryl@krealsolutions.co.uk" style={{ color: "var(--assure-deep)" }}>
+                  kiryl@krealsolutions.co.uk
                 </a>
                 .
               </p>
@@ -55,8 +55,8 @@ export default function PrivacyPage() {
               <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: 10 }}>Your rights</h2>
               <p>
                 You can ask us to access, correct, delete, restrict, or export your data, or object to how we use it, at any time – email{" "}
-                <a href="mailto:info@krealsolutions.co.uk" style={{ color: "var(--assure-deep)" }}>
-                  info@krealsolutions.co.uk
+                <a href="mailto:kiryl@krealsolutions.co.uk" style={{ color: "var(--assure-deep)" }}>
+                  kiryl@krealsolutions.co.uk
                 </a>{" "}
                 and we&apos;ll act on it promptly
               </p>

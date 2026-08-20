@@ -32,7 +32,7 @@ Copy `.env.example` to `.env.local` and fill in real values (never commit `.env.
 NEXT_PUBLIC_SUPABASE_URL=       # Project Settings -> API -> Project URL
 SUPABASE_SERVICE_ROLE_KEY=      # Project Settings -> API -> service_role secret (never expose client-side)
 RESEND_API_KEY=                 # optional - enquiry/health-check emails no-op silently without it
-ENQUIRY_NOTIFY_EMAIL=info@krealsolutions.co.uk
+ENQUIRY_NOTIFY_EMAIL=kiryl@krealsolutions.co.uk
 ```
 
 The service-role key is server-only — it's read exclusively in `src/lib/supabase-server.ts` and is never referenced from a Client Component or exposed as `NEXT_PUBLIC_*`.
@@ -53,11 +53,19 @@ To apply migrations to a different/new project, run the SQL files in `supabase/m
 
 Deploys on [Vercel](https://vercel.com) from this repo's `main` branch. Set the environment variables above in Vercel → Project Settings → Environment Variables (Production + Preview) — they are never committed.
 
+## Domain and email
+
+`krealsolutions.co.uk` is live on Vercel (apex is the canonical/Production domain; `www` 308-redirects to it). Email is on Microsoft 365 (`kiryl@krealsolutions.co.uk`), with MX + SPF already pointing at Microsoft — see "Resend setup" below before changing anything DNS-related, since Resend's records need to coexist with this without breaking real mail.
+
+## Resend setup (outstanding)
+
+Transactional email (`RESEND_API_KEY`) is not yet configured — enquiry/health-check emails currently no-op silently. To wire it up:
+
+1. Verify a **subdomain** (e.g. `send.krealsolutions.co.uk`), not the root domain, in the Resend dashboard — this keeps Resend's DKIM/SPF entirely separate from the working M365 mail setup on the root domain, so there's no risk of conflicting records.
+2. Add the DNS records Resend's dashboard shows (typically DKIM CNAMEs, scoped to the subdomain) in Namecheap.
+3. Once verified, update the `from` address in `src/lib/resend.ts` (currently `onboarding@resend.dev`, Resend's shared test domain) to something on the verified subdomain, e.g. `K Real Solutions <notifications@send.krealsolutions.co.uk>`.
+4. Add `RESEND_API_KEY` to `.env.local` and to Vercel → Project Settings → Environment Variables (Production + Preview).
+
 ## Known placeholders
 
-A few details aren't final yet and are marked inline where they appear:
-
-- **Domain**: `krealsolutions.co.uk` is not yet purchased — used as a placeholder in metadata/Open Graph tags and email links (`src/app/layout.tsx`, `src/app/sitemap.ts`).
-- **Contact email**: `info@krealsolutions.co.uk` is a placeholder for the same reason.
-- **Registered office address**: omitted from the footer and `/privacy` until confirmed — the Companies Act trading disclosure currently shows company name/number/jurisdiction only.
 - **ICO registration**: not yet referenced anywhere on the site — handled separately, outside this codebase.
