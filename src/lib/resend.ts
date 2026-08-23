@@ -56,6 +56,8 @@ export async function sendHealthCheckResult(input: HealthCheckResultInput) {
         "",
         "Book a conversation: https://krealsolutions.co.uk/#contact",
         "Look up this result again anytime: https://krealsolutions.co.uk/health-check/lookup",
+        "",
+        "This mailbox is not monitored – for any questions, reply to kiryl@krealsolutions.co.uk",
       ].join("\n"),
     }),
   });
