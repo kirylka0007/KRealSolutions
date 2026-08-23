@@ -36,7 +36,13 @@ export function Contact() {
         <div style={{ marginTop: 40 }}>
           <EnquiryForm />
         </div>
-        <div className="mailto">kiryl@krealsolutions.co.uk</div>
+        <a href="mailto:kiryl@krealsolutions.co.uk" className="mailto">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 6-10 7L2 6" />
+          </svg>
+          kiryl@krealsolutions.co.uk
+        </a>
       </Reveal>
     </section>
   );
