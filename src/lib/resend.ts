@@ -14,7 +14,7 @@ export async function notifyNewEnquiry(input: EnquiryInput) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "K Real Solutions website <onboarding@resend.dev>",
+      from: "K Real Solutions website <notifications@send.krealsolutions.co.uk>",
       to,
       subject: `New enquiry from ${input.name || input.email}`,
       text: [
@@ -45,7 +45,7 @@ export async function sendHealthCheckResult(input: HealthCheckResultInput) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "K Real Solutions website <onboarding@resend.dev>",
+      from: "K Real Solutions website <notifications@send.krealsolutions.co.uk>",
       to: input.email,
       subject: "Your K Real Solutions health-check result",
       text: [
@@ -70,7 +70,7 @@ export async function sendHealthCheckResult(input: HealthCheckResultInput) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "K Real Solutions website <onboarding@resend.dev>",
+      from: "K Real Solutions website <notifications@send.krealsolutions.co.uk>",
       to: notifyTo,
       subject: `New health-check completion from ${input.name}`,
       text: [
