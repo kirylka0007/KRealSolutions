@@ -165,6 +165,56 @@ a{color:inherit;text-decoration:none}
 .on-ink .disclaimer-list li{color:var(--paper-text-soft)}
 .on-ink .disclaimer-list b{color:var(--paper-text)}
 
+/* INNOVATION LAB */
+.lab-hero h2{font-size:clamp(2.4rem,5.6vw,4.2rem);letter-spacing:-.03em}
+.lab-hero p{font-size:1.08rem}
+
+.marquee{overflow:hidden;border-top:1px solid var(--hair-ink);border-bottom:1px solid var(--hair-ink);padding:16px 0;margin:40px 0 0}
+.marquee-track{display:flex;width:max-content;animation:marquee-scroll 26s linear infinite}
+.marquee-track > span{display:flex;align-items:center}
+.marquee-track span span{font-family:var(--font-plex-mono),monospace;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-text-soft);white-space:nowrap;display:inline-flex;align-items:center}
+.marquee-track span span::after{content:"◆";color:var(--assure);margin:0 40px;font-size:.6rem}
+@keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.innovation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+@media(max-width:940px){.innovation-grid{grid-template-columns:1fr}}
+.iv-card{background:var(--ink-2);border:1px solid var(--hair-ink);border-radius:14px;padding:26px;overflow:hidden}
+.iv-card .tag{font-family:var(--font-plex-mono),monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--assure)}
+.iv-card h4{color:#fff;font-size:1.02rem;margin:8px 0 18px;font-weight:700}
+.iv-stage{height:170px;position:relative}
+
+.pm-svg{width:100%;height:100%;overflow:visible}
+.pm-edge{fill:none;stroke:var(--hair-ink);stroke-width:2}
+.pm-node{fill:var(--ink-3);stroke:var(--hair-ink);stroke-width:1.5}
+.pm-node.exc{fill:rgba(216,85,46,.18);stroke:var(--exception-red)}
+.pm-pulse-ring{fill:none;stroke:var(--exception-red);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:pm-pulse 1.8s ease-out infinite}
+.pm-dot{fill:var(--assure-bright);filter:drop-shadow(0 0 5px var(--assure-bright));offset-path:path("M20,100 Q90,40 160,100 Q230,160 300,100 Q370,40 440,100 Q510,160 580,100");offset-rotate:0deg;animation:pm-travel 4.5s linear infinite}
+@keyframes pm-pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.6);opacity:0}}
+@keyframes pm-travel{from{offset-distance:0%}to{offset-distance:100%}}
+
+.auto-visual{height:100%;display:flex;align-items:center;justify-content:center;gap:16px}
+.auto-track{position:relative;flex:1;height:6px;background:var(--hair-ink);border-radius:4px;display:flex;justify-content:space-between;align-items:center}
+.auto-stage{width:14px;height:14px;border-radius:4px;background:var(--ink-3);border:1px solid var(--hair-ink);flex:none;animation:auto-pulse 2.4s ease-in-out infinite}
+@keyframes auto-pulse{0%,100%{background:var(--ink-3);box-shadow:none}40%{background:var(--assure);box-shadow:0 0 12px var(--assure)}}
+.auto-shuttle{position:absolute;top:50%;left:0;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--assure-bright);box-shadow:0 0 10px var(--assure-bright);animation:auto-shuttle 3s ease-in-out infinite alternate}
+@keyframes auto-shuttle{from{left:0}to{left:calc(100% - 10px)}}
+.auto-gear{width:32px;height:32px;color:var(--paper-text-soft);flex:none;animation:auto-spin 6s linear infinite}
+.auto-gear-b{animation-name:auto-spin-reverse;animation-duration:5s}
+@keyframes auto-spin{to{transform:rotate(360deg)}}
+@keyframes auto-spin-reverse{to{transform:rotate(-360deg)}}
+
+.ai-visual{position:relative;height:100%;display:flex;align-items:center;overflow:hidden}
+.ai-bars{width:100%;display:grid;gap:12px}
+.ai-bars span{display:block;height:9px;border-radius:4px;background:var(--ink-3)}
+.ai-bars span.flag{animation:ai-flag 3.2s ease-in-out infinite}
+@keyframes ai-flag{0%,55%{background:var(--ink-3)}62%,72%{background:var(--exception-red)}100%{background:var(--ink-3)}}
+.ai-scan{position:absolute;left:0;right:0;height:50%;top:-50%;background:linear-gradient(180deg,rgba(18,165,148,0) 0%,rgba(18,165,148,.25) 50%,rgba(18,165,148,0) 100%);animation:ai-scan 3.2s ease-in-out infinite}
+@keyframes ai-scan{0%{top:-50%}100%{top:100%}}
+
+@media(prefers-reduced-motion:reduce){
+  .pm-dot,.pm-pulse-ring,.auto-stage,.auto-shuttle,.auto-gear,.auto-gear-b,.ai-bars span.flag,.ai-scan,.marquee-track{animation:none!important}
+}
+
 /* TEASERS */
 .teaser-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
 .teaser-card{background:#fff;border:1px solid var(--hair);border-radius:12px;padding:24px;transition:transform .3s var(--ease),border-color .3s}
