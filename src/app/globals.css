@@ -181,6 +181,13 @@ a{color:inherit;text-decoration:none}
 .lab-hero{min-height:clamp(620px,88vh,940px);display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;padding:120px 0 90px}
 .lab-hero .pill{position:relative;z-index:3;margin-bottom:34px}
+.lab .pill{color:#f2fffc;font-size:.74rem;font-weight:500;letter-spacing:.15em;padding:9px 20px;
+  background:rgba(18,165,148,.16);border-color:rgba(25,201,180,.6);
+  box-shadow:0 0 30px rgba(18,165,148,.28),inset 0 1px 0 rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);text-shadow:0 0 18px rgba(25,201,180,.5)}
+.lab .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--assure-bright);flex:none;
+  box-shadow:0 0 10px 1px var(--assure-bright);animation:lab-dot-pulse 2s ease-in-out infinite}
+@keyframes lab-dot-pulse{0%,100%{opacity:.45;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
 .lab-title{position:relative;z-index:3;font-size:clamp(2.9rem,8.4vw,6.6rem);line-height:.94;letter-spacing:-.04em;
   max-width:16ch;color:#fff;text-wrap:balance}
 .lab-title span{display:inline-block;margin-right:.22em;opacity:0;transform:translateY(38px);
@@ -329,7 +336,8 @@ a{color:inherit;text-decoration:none}
 
 @media(prefers-reduced-motion:reduce){
   .lab-aura,.core-glow,.core-ring,.core-arc,.core-center,.marquee-track,.pm-edge,.pm-node,.pm-pulse-ring,.pm-particle,
-  .auto-gear,.auto-work,.auto-gate,.auto-tick,.ai-edge.live,.ai-node,.ai-beam,.lab-scroll i{animation:none!important}
+  .auto-gear,.auto-work,.auto-gate,.auto-tick,.ai-edge.live,.ai-node,.ai-beam,.lab-scroll i,
+  .lab .pill::before{animation:none!important}
   .lab-title span,.lab-lede,.lab-scroll{opacity:1!important;transform:none!important;animation:none!important}
 }
 
