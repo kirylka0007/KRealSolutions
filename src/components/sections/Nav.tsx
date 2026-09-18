@@ -36,6 +36,9 @@ export function Nav() {
           <Link href="/health-check" onClick={() => setOpen(false)}>
             Health check
           </Link>
+          <Link href="/innovation-lab" onClick={() => setOpen(false)}>
+            Innovation Lab
+          </Link>
           <Link href="/#contact" className="nav-cta" onClick={() => setOpen(false)}>
             Book a conversation
           </Link>

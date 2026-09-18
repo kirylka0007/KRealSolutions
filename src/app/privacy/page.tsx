@@ -26,7 +26,7 @@ export default function PrivacyPage() {
             <div>
               <h2 style={{ fontSize: "1.3rem", color: "var(--text)", marginBottom: 10 }}>What we collect</h2>
               <p>
-                If you use our enquiry form, we collect your name, email address, organisation, role, the topic you&apos;re interested in, and any message you write. If you use our health-check quiz, we collect your name, email address, industry, team size, current data &amp; analytics maturity, budget appetite, primary aim, and any optional pain-point description you provide. We also briefly log IP addresses for spam and abuse prevention on both forms; this is not retained beyond that operational purpose.
+                If you use our enquiry form, we collect your name, email address, organisation, role, the topic you&apos;re interested in, and any message you write. If you use our health-check quiz, we collect your name, email address, industry, team size, current data &amp; analytics maturity, budget appetite, primary aim, and any optional pain-point description you provide. If you request access to the Innovation Lab, we collect your name, job title, company, company website, industry, work email address, and the reason you give for wanting access. We also briefly log IP addresses for spam and abuse prevention on these forms; this is not retained beyond that operational purpose.
               </p>
             </div>
 
