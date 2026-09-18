@@ -313,6 +313,19 @@ a{color:inherit;text-decoration:none}
   50%{fill:rgba(18,165,148,.35);stroke:var(--assure-bright)}}
 @keyframes ai-beam{0%{transform:translateX(0);opacity:0}8%{opacity:.6}92%{opacity:.6}100%{transform:translateX(756px);opacity:0}}
 
+/* Request confirmation */
+.lab-success{max-width:520px;margin:0 auto;text-align:center;padding:44px 34px;border-radius:18px;
+  background:rgba(18,165,148,.07);border:1px solid rgba(25,201,180,.35);
+  box-shadow:0 0 60px rgba(18,165,148,.16),inset 0 1px 0 rgba(255,255,255,.05)}
+.lab-success-mark{width:54px;height:54px;margin:0 auto 20px;display:block;color:var(--assure-bright);
+  filter:drop-shadow(0 0 14px rgba(25,201,180,.6))}
+.lab-success-mark circle,.lab-success-mark path{stroke-dasharray:180;stroke-dashoffset:180;
+  animation:lab-draw .9s var(--ease) forwards}
+.lab-success-mark path{stroke-dasharray:40;stroke-dashoffset:40;animation-delay:.45s}
+.lab-success h4{color:#fff;font-size:1.34rem;font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+.lab-success p{color:var(--paper-text-soft);font-size:.96rem;line-height:1.65}
+@keyframes lab-draw{to{stroke-dashoffset:0}}
+
 /* Request + terms */
 .lab-terms{margin-top:clamp(56px,8vw,88px);padding-top:34px;border-top:1px solid var(--lab-hair);max-width:760px;
   margin-left:auto;margin-right:auto}
@@ -338,6 +351,7 @@ a{color:inherit;text-decoration:none}
   .lab-aura,.core-glow,.core-ring,.core-arc,.core-center,.marquee-track,.pm-edge,.pm-node,.pm-pulse-ring,.pm-particle,
   .auto-gear,.auto-work,.auto-gate,.auto-tick,.ai-edge.live,.ai-node,.ai-beam,.lab-scroll i,
   .lab .pill::before{animation:none!important}
+  .lab-success-mark circle,.lab-success-mark path{animation:none!important;stroke-dashoffset:0!important}
   .lab-title span,.lab-lede,.lab-scroll{opacity:1!important;transform:none!important;animation:none!important}
 }
 
@@ -379,6 +393,8 @@ a{color:inherit;text-decoration:none}
 .offer h4{font-size:1.12rem;margin:12px 0 6px;font-weight:700}
 .offer p{font-size:.9rem;color:var(--text-soft)}
 .offer .btn{margin-top:16px;align-self:flex-start}
+/* .offer is always a light card, so keep its heading dark even inside .on-ink sections */
+.on-ink .offer h4{color:var(--text)}
 
 /* FREE OFFERS TRIO */
 .free-lead{margin-top:44px}

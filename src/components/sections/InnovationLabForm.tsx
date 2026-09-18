@@ -42,7 +42,11 @@ export function InnovationLabForm() {
 
   if (status === "success") {
     return (
-      <div className="offer" role="status">
+      <div className="lab-success" role="status">
+        <svg className="lab-success-mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+          <circle cx="32" cy="32" r="28" strokeLinecap="round" />
+          <path d="M20 33.5 28.5 42 45 24" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
         <h4>Request received</h4>
         <p>We review every request by hand. If it&apos;s a good fit, we&apos;ll email you your access details.</p>
       </div>
