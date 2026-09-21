@@ -1,27 +1,43 @@
 export type Industry =
+  | "public_sector"
+  | "housing"
+  | "healthcare"
+  | "education"
+  | "energy"
+  | "transport"
+  | "manufacturing"
+  | "retail"
+  | "technology"
+  | "professional_services"
+  | "charity"
   | "banking"
   | "asset_management"
   | "insurance"
   | "other_regulated_fs"
-  | "manufacturing"
-  | "retail"
-  | "public_sector"
-  | "healthcare"
-  | "technology"
-  | "energy"
   | "other";
 
+/**
+ * Order here is the order shown in the dropdown, since the options are built
+ * from `Object.keys`. Existing keys are never renamed — answers already
+ * submitted are stored against them — so widening the list means adding keys
+ * and reordering, not rewriting what is there.
+ */
 export const INDUSTRY_LABELS: Record<Industry, string> = {
+  public_sector: "Public sector & local government",
+  housing: "Housing & social housing",
+  healthcare: "Healthcare & NHS",
+  education: "Education & universities",
+  energy: "Energy & utilities",
+  transport: "Transport & infrastructure",
+  manufacturing: "Manufacturing",
+  retail: "Retail & consumer",
+  technology: "Technology & software",
+  professional_services: "Professional & business services",
+  charity: "Charity & not-for-profit",
   banking: "Banking",
   asset_management: "Asset & investment management",
   insurance: "Insurance",
   other_regulated_fs: "Other regulated financial services",
-  manufacturing: "Manufacturing",
-  retail: "Retail & consumer",
-  public_sector: "Public sector & government",
-  healthcare: "Healthcare",
-  technology: "Technology & software",
-  energy: "Energy & utilities",
   other: "Other",
 };
 

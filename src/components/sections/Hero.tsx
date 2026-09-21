@@ -14,9 +14,8 @@ export function Hero() {
           </h1>
           <p className="lede">
             We design and build continuous, AI-driven assurance solutions for internal audit and
-            wider assurance functions in regulated financial services – replacing manual,
-            point-in-time testing with always-on coverage, built by an FCCA-qualified auditor with
-            an MSc in Data Science
+            wider assurance functions – replacing manual, point-in-time testing with always-on
+            coverage, built by an FCCA-qualified auditor with an MSc in Data Science
           </p>
           <div className="hero-cta">
             <Link href="/#contact" className="btn btn-primary">
