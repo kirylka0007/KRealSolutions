@@ -1,6 +1,7 @@
 import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { IntentProvider } from "@/context/IntentContext";
 
 const archivo = Archivo({
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <body>
         <IntentProvider>{children}</IntentProvider>
+        <Analytics />
       </body>
     </html>
   );
