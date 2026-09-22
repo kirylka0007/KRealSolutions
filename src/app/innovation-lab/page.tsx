@@ -58,7 +58,7 @@ export default function InnovationLabPage() {
             <div className="showcase-copy">
               <span className="showcase-num">01</span>
               <span className="tag">Process mining</span>
-              <h3>Every event mapped. Every exception caught.</h3>
+              <h3>Every event mapped. Every exception caught</h3>
               <p>
                 Reconstructed from your event data, not your flowchart. Variants, rework loops and control gaps
                 surface on their own – and anything that breaks the rules lights up the moment it happens.
@@ -73,7 +73,7 @@ export default function InnovationLabPage() {
             <div className="showcase-copy">
               <span className="showcase-num">02</span>
               <span className="tag">Board papers</span>
-              <h3>Forty pages in. One picture out.</h3>
+              <h3>Forty pages in. One picture out</h3>
               <p>
                 The dense passages of a routine committee paper, turned into figures a committee can read in
                 seconds. Amplification, not summary – every number, reference and date traces straight back to the
@@ -89,7 +89,7 @@ export default function InnovationLabPage() {
             <div className="showcase-copy">
               <span className="showcase-num">03</span>
               <span className="tag">Continuous controls monitoring</span>
-              <h3>Found stays found. Flagged the day it happens.</h3>
+              <h3>Found stays found. Flagged the day it happens</h3>
               <p>
                 Whole-population testing against an expected band for every control, on a cadence – no sampling, no
                 smoothing. Each flag runs raised, investigated, reviewed, approved; approval is evidence someone
@@ -105,7 +105,7 @@ export default function InnovationLabPage() {
             <div className="showcase-copy">
               <span className="showcase-num">04</span>
               <span className="tag">Stakeholder relationships</span>
-              <h3>Assesses the entity. Never the individual.</h3>
+              <h3>Assesses the entity. Never the individual</h3>
               <p>
                 Cadence conversations with senior stakeholders feed straight into the risk assessment of the entity
                 they belong to – never a rating on them. Agendas draft from what was left open last time; minutes
