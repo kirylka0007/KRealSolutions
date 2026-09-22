@@ -254,6 +254,18 @@ a{color:inherit;text-decoration:none}
   background:radial-gradient(ellipse at 50% 50%,rgba(18,165,148,.10),transparent 68%)}
 .showcase-visual > svg,.showcase-visual > div{position:relative;width:100%}
 
+/* Supporting strip – how the four products above are built, not a fifth and sixth offer */
+.lab-substrip{margin-top:clamp(48px,7vw,80px);padding:clamp(40px,6vw,64px) 0 clamp(56px,8vw,88px);
+  border-top:1px solid var(--lab-hair);position:relative;z-index:2}
+.lab-substrip .eyebrow{color:var(--assure)}
+.substrip-lede{margin-top:12px;color:var(--paper-text-soft);font-size:.98rem;line-height:1.6;max-width:56ch}
+.substrip-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,52px);margin-top:clamp(28px,4vw,40px)}
+.substrip-item{display:flex;align-items:flex-start;gap:20px}
+.strip-mark{flex:none;width:64px;color:rgba(221,230,229,.55)}
+.substrip-item h4{color:#fff;font-family:var(--font-archivo),sans-serif;font-size:1.02rem;font-weight:700;margin-bottom:6px}
+.substrip-item p{color:var(--paper-text-soft);font-size:.92rem;line-height:1.6;max-width:38ch}
+@media(max-width:640px){.substrip-grid{grid-template-columns:1fr}}
+
 /* Process mining */
 .pm-svg{width:100%;height:auto;overflow:visible}
 .pm-grid-dot{fill:rgba(221,230,229,.12)}

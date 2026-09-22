@@ -188,6 +188,57 @@ export function AiVisual() {
   );
 }
 
+/* Compact marks used in the "how these are built" strip – small pieces lifted
+   from AutomationVisual and AiVisual above, at supporting-cast scale rather
+   than full showcase scale. The full visuals stay exported and untouched. */
+export function AutomationMark() {
+  return (
+    <div className="strip-mark" aria-hidden="true">
+      <div className="auto-machine">
+        <Gear className="auto-gear auto-gear-lg" />
+        <Gear className="auto-gear auto-gear-sm" />
+      </div>
+    </div>
+  );
+}
+
+const AI_MARK_EDGES: Array<{ x1: number; y1: number; x2: number; y2: number; on: boolean; delay: number }> = [
+  { x1: 14, y1: 16, x2: 56, y2: 28, on: true, delay: 0 },
+  { x1: 14, y1: 44, x2: 56, y2: 28, on: false, delay: 0 },
+  { x1: 14, y1: 44, x2: 56, y2: 62, on: true, delay: 0.9 },
+  { x1: 14, y1: 72, x2: 56, y2: 62, on: false, delay: 0 },
+];
+const AI_MARK_NODES = [
+  { x: 14, y: 16 },
+  { x: 14, y: 44 },
+  { x: 14, y: 72 },
+  { x: 56, y: 28 },
+  { x: 56, y: 62 },
+];
+
+export function AiMark() {
+  return (
+    <div className="strip-mark" aria-hidden="true">
+      <svg viewBox="0 0 70 88" className="ai-svg">
+        {AI_MARK_EDGES.map((e, i) => (
+          <line
+            key={i}
+            x1={e.x1}
+            y1={e.y1}
+            x2={e.x2}
+            y2={e.y2}
+            className={`ai-edge${e.on ? " live" : ""}`}
+            style={e.on ? { animationDelay: `${e.delay}s` } : undefined}
+          />
+        ))}
+        {AI_MARK_NODES.map((n, i) => (
+          <circle key={i} cx={n.x} cy={n.y} r="5" className="ai-node" style={{ animationDelay: `${i * 0.3}s` }} />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 const BP_LINE_X = 52;
 const BP_LINE_ANCHOR_X = 330;
 const BP_BASELINE = 310;
@@ -433,11 +484,11 @@ export function StakeholderVisual() {
 
 const MARQUEE_WORDS = [
   "Process mining",
-  "Robotic process automation",
-  "Generative AI",
   "Board papers",
   "Continuous controls monitoring",
   "Stakeholder relationships",
+  "Robotic process automation",
+  "Generative AI",
   "Next-gen audit innovation",
 ];
 

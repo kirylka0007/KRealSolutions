@@ -5,11 +5,11 @@ import {
   AssuranceCore,
   Marquee,
   ProcessMiningVisual,
-  AutomationVisual,
-  AiVisual,
   BoardPapersVisual,
   ContinuousMonitoringVisual,
   StakeholderVisual,
+  AutomationMark,
+  AiMark,
 } from "@/components/sections/InnovationVisuals";
 
 const TITLE_WORDS: Array<{ t: string; em?: boolean }> = [
@@ -40,7 +40,7 @@ export default function InnovationLabPage() {
               ))}
             </h1>
             <p className="lab-lede">
-              Process mining, continuous controls monitoring, board papers and stakeholder relationships, running
+              Process mining, board papers, continuous controls monitoring and stakeholder relationships, running
               together on real audit workflows. This is where we build what comes next – and a small number of
               internal audit teams get to see it first.
             </p>
@@ -72,36 +72,6 @@ export default function InnovationLabPage() {
           <div className="showcase">
             <div className="showcase-copy">
               <span className="showcase-num">02</span>
-              <span className="tag">Robotic automation</span>
-              <h3>Work that moves itself down the line.</h3>
-              <p>
-                Follow-ups, request chasing, evidence collection and reporting run without anyone pushing them along.
-                Your auditors keep the judgement; the pipeline keeps the admin.
-              </p>
-            </div>
-            <div className="showcase-visual">
-              <AutomationVisual />
-            </div>
-          </div>
-
-          <div className="showcase">
-            <div className="showcase-copy">
-              <span className="showcase-num">03</span>
-              <span className="tag">Generative AI</span>
-              <h3>Reads everything. Flags what matters.</h3>
-              <p>
-                Policies, contracts, tickets and notes, read end to end and scored against the risks you care about –
-                governed, auditable, and with a human holding the pen on every conclusion.
-              </p>
-            </div>
-            <div className="showcase-visual">
-              <AiVisual />
-            </div>
-          </div>
-
-          <div className="showcase">
-            <div className="showcase-copy">
-              <span className="showcase-num">04</span>
               <span className="tag">Board papers</span>
               <h3>Forty pages in. One picture out.</h3>
               <p>
@@ -117,9 +87,9 @@ export default function InnovationLabPage() {
 
           <div className="showcase">
             <div className="showcase-copy">
-              <span className="showcase-num">05</span>
+              <span className="showcase-num">03</span>
               <span className="tag">Continuous controls monitoring</span>
-              <h3>Found stays found. No score to hide it in.</h3>
+              <h3>Found stays found. Flagged the day it happens.</h3>
               <p>
                 Whole-population testing against an expected band for every control, on a cadence – no sampling, no
                 smoothing. Each flag runs raised, investigated, reviewed, approved; approval is evidence someone
@@ -133,7 +103,7 @@ export default function InnovationLabPage() {
 
           <div className="showcase">
             <div className="showcase-copy">
-              <span className="showcase-num">06</span>
+              <span className="showcase-num">04</span>
               <span className="tag">Stakeholder relationships</span>
               <h3>Assesses the entity. Never the individual.</h3>
               <p>
@@ -144,6 +114,29 @@ export default function InnovationLabPage() {
             </div>
             <div className="showcase-visual">
               <StakeholderVisual />
+            </div>
+          </div>
+
+          <div className="lab-substrip">
+            <span className="eyebrow">How these are built</span>
+            <p className="substrip-lede">
+              Every product above runs on these two engines. Baked in by design, not offered on their own.
+            </p>
+            <div className="substrip-grid">
+              <div className="substrip-item">
+                <AutomationMark />
+                <div>
+                  <h4>Robotic automation</h4>
+                  <p>Chasing, collection and reporting that runs itself, underneath every product above.</p>
+                </div>
+              </div>
+              <div className="substrip-item">
+                <AiMark />
+                <div>
+                  <h4>Generative AI</h4>
+                  <p>Reads everything so the products above only ever surface what matters.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
