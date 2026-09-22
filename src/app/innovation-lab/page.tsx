@@ -7,6 +7,9 @@ import {
   ProcessMiningVisual,
   AutomationVisual,
   AiVisual,
+  BoardPapersVisual,
+  ContinuousMonitoringVisual,
+  StakeholderVisual,
 } from "@/components/sections/InnovationVisuals";
 
 const TITLE_WORDS: Array<{ t: string; em?: boolean }> = [
@@ -37,8 +40,9 @@ export default function InnovationLabPage() {
               ))}
             </h1>
             <p className="lab-lede">
-              Process mining, robotic automation and generative AI, running together on real audit workflows. This is
-              where we build what comes next – and a small number of internal audit teams get to see it first.
+              Process mining, continuous controls monitoring, board papers and stakeholder relationships, running
+              together on real audit workflows. This is where we build what comes next – and a small number of
+              internal audit teams get to see it first.
             </p>
             <span className="lab-scroll">
               See it working
@@ -92,6 +96,54 @@ export default function InnovationLabPage() {
             </div>
             <div className="showcase-visual">
               <AiVisual />
+            </div>
+          </div>
+
+          <div className="showcase">
+            <div className="showcase-copy">
+              <span className="showcase-num">04</span>
+              <span className="tag">Board papers</span>
+              <h3>Forty pages in. One picture out.</h3>
+              <p>
+                The dense passages of a routine committee paper, turned into figures a committee can read in
+                seconds. Amplification, not summary – every number, reference and date traces straight back to the
+                words that produced it.
+              </p>
+            </div>
+            <div className="showcase-visual">
+              <BoardPapersVisual />
+            </div>
+          </div>
+
+          <div className="showcase">
+            <div className="showcase-copy">
+              <span className="showcase-num">05</span>
+              <span className="tag">Continuous controls monitoring</span>
+              <h3>Found stays found. No score to hide it in.</h3>
+              <p>
+                Whole-population testing against an expected band for every control, on a cadence – no sampling, no
+                smoothing. Each flag runs raised, investigated, reviewed, approved; approval is evidence someone
+                looked, not that the count went down.
+              </p>
+            </div>
+            <div className="showcase-visual">
+              <ContinuousMonitoringVisual />
+            </div>
+          </div>
+
+          <div className="showcase">
+            <div className="showcase-copy">
+              <span className="showcase-num">06</span>
+              <span className="tag">Stakeholder relationships</span>
+              <h3>Assesses the entity. Never the individual.</h3>
+              <p>
+                Cadence conversations with senior stakeholders feed straight into the risk assessment of the entity
+                they belong to – never a rating on them. Agendas draft from what was left open last time; minutes
+                become categorised insight, and overdue conversations surface on their own.
+              </p>
+            </div>
+            <div className="showcase-visual">
+              <StakeholderVisual />
             </div>
           </div>
         </div>

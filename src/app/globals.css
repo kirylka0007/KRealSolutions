@@ -313,6 +313,65 @@ a{color:inherit;text-decoration:none}
   50%{fill:rgba(18,165,148,.35);stroke:var(--assure-bright)}}
 @keyframes ai-beam{0%{transform:translateX(0);opacity:0}8%{opacity:.6}92%{opacity:.6}100%{transform:translateX(756px);opacity:0}}
 
+/* Board papers */
+.bp-svg{width:100%;height:auto;overflow:visible}
+.bp-page{fill:rgba(221,230,229,.035);stroke:var(--lab-hair);stroke-width:1}
+.bp-heading{fill:rgba(221,230,229,.28)}
+.bp-rule{stroke:var(--lab-hair);stroke-width:1}
+.bp-line{fill:rgba(221,230,229,.16)}
+.bp-line.mark-a{fill:var(--assure-bright);opacity:.8;filter:drop-shadow(0 0 6px rgba(25,201,180,.5));animation:bp-mark-pulse 4.4s ease-in-out infinite}
+.bp-line.mark-b{fill:var(--exception);opacity:.8;filter:drop-shadow(0 0 6px rgba(232,163,23,.5));animation:bp-mark-pulse 4.4s ease-in-out infinite;animation-delay:1.4s}
+.bp-line.mark-c{fill:var(--assure);opacity:.8;filter:drop-shadow(0 0 6px rgba(18,165,148,.5));animation:bp-mark-pulse 4.4s ease-in-out infinite;animation-delay:2.8s}
+@keyframes bp-mark-pulse{0%,100%{opacity:.8}50%{opacity:1}}
+.bp-axis{stroke:var(--lab-hair);stroke-width:1}
+.bp-bar{fill:rgba(221,230,229,.14);stroke:var(--lab-hair);stroke-width:1;transform-box:fill-box;transform-origin:bottom;animation:bp-grow 5s var(--ease) infinite}
+.bp-bar.mark-a{fill:rgba(25,201,180,.24);stroke:var(--assure-bright)}
+.bp-bar.mark-b{fill:rgba(232,163,23,.24);stroke:var(--exception)}
+.bp-bar.mark-c{fill:rgba(18,165,148,.24);stroke:var(--assure)}
+@keyframes bp-grow{0%,60%{transform:scaleY(1)}72%{transform:scaleY(1.08)}100%{transform:scaleY(1)}}
+.bp-link{fill:none;stroke-width:1.5;stroke-dasharray:4 6;opacity:.5;animation:lab-dash 4s linear infinite}
+.bp-link.mark-a{stroke:var(--assure-bright)}
+.bp-link.mark-b{stroke:var(--exception)}
+.bp-link.mark-c{stroke:var(--assure)}
+.bp-particle{opacity:1;filter:drop-shadow(0 0 6px currentColor);animation:pm-travel 4.4s linear infinite}
+.bp-particle.mark-a{fill:var(--assure-bright);animation-delay:0s}
+.bp-particle.mark-b{fill:var(--exception);animation-delay:1.4s}
+.bp-particle.mark-c{fill:var(--assure);animation-delay:2.8s}
+.bp-scan{opacity:.5;fill:var(--assure-bright);filter:drop-shadow(0 0 10px var(--assure-bright));animation:bp-scan 6s ease-in-out infinite}
+@keyframes bp-scan{0%{transform:translateY(0);opacity:0}8%{opacity:.55}50%{opacity:.55}92%{opacity:0}100%{transform:translateY(296px);opacity:0}}
+
+/* Continuous controls monitoring */
+.cm-svg{width:100%;height:auto;overflow:visible}
+.cm-band{fill:rgba(18,165,148,.09);stroke:rgba(18,165,148,.28);stroke-width:1}
+.cm-trend{fill:none;stroke:rgba(221,230,229,.22);stroke-width:1.5}
+.cm-dot{fill:var(--assure);opacity:.7;animation:cm-dot-pulse 4.8s ease-in-out infinite}
+.cm-dot.exc{fill:var(--exception-red);opacity:1;animation:none}
+@keyframes cm-dot-pulse{0%,100%{opacity:.55}50%{opacity:.9}}
+.cm-pulse-ring{fill:none;stroke:var(--exception-red);stroke-width:2;transform-box:fill-box;transform-origin:center;
+  animation:pm-pulse 2.4s ease-out infinite}
+.cm-track{stroke:var(--lab-hair);stroke-width:1}
+.cm-gate{fill:rgba(221,230,229,.14);stroke:var(--lab-hair);stroke-width:1}
+.cm-link{fill:none;stroke:rgba(216,85,46,.4);stroke-width:1.5;stroke-dasharray:4 6;opacity:.6;animation:lab-dash 5s linear infinite}
+.cm-marker{fill:var(--exception-red);opacity:1;filter:drop-shadow(0 0 6px rgba(216,85,46,.7));animation:cm-travel 6.4s linear infinite}
+@keyframes cm-travel{from{offset-distance:0%}to{offset-distance:100%}}
+
+/* Stakeholder relationships */
+.sh-svg{width:100%;height:auto;overflow:visible}
+.sh-spoke{stroke:rgba(221,230,229,.16);stroke-width:1.3;fill:none}
+.sh-spoke.overdue{stroke:rgba(232,163,23,.5);stroke-dasharray:3 5}
+.sh-node{fill:#0d2830;stroke:rgba(221,230,229,.4);stroke-width:1.3}
+.sh-node.overdue{fill:rgba(232,163,23,.32);stroke:var(--exception);stroke-width:2;filter:drop-shadow(0 0 7px rgba(232,163,23,.65))}
+.sh-warn-ring{fill:none;stroke:var(--exception);stroke-width:1.5;stroke-dasharray:3 4;opacity:.85;transform-box:fill-box;transform-origin:center;
+  animation:sh-warn 1.6s ease-in-out infinite}
+@keyframes sh-warn{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.9);opacity:0}}
+.sh-particle{fill:var(--assure-bright);opacity:1;filter:drop-shadow(0 0 5px var(--assure-bright));animation:cm-travel 3.6s linear infinite}
+.sh-hub-ring{fill:none;stroke:rgba(18,165,148,.3);stroke-width:1.5;opacity:.5;transform-box:fill-box;transform-origin:center;
+  animation:sh-cadence 5.2s ease-in-out infinite}
+@keyframes sh-cadence{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:0}}
+.sh-hub{fill:rgba(18,165,148,.22);stroke:var(--assure-bright);stroke-width:1.5;opacity:.92;
+  transform-box:fill-box;transform-origin:center;
+  animation-name:lab-breathe;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+
 /* Request confirmation */
 .lab-success{max-width:520px;margin:0 auto;text-align:center;padding:44px 34px;border-radius:18px;
   background:rgba(18,165,148,.07);border:1px solid rgba(25,201,180,.35);
@@ -350,6 +409,9 @@ a{color:inherit;text-decoration:none}
 @media(prefers-reduced-motion:reduce){
   .lab-aura,.core-glow,.core-ring,.core-arc,.core-center,.marquee-track,.pm-edge,.pm-node,.pm-pulse-ring,.pm-particle,
   .auto-gear,.auto-work,.auto-gate,.auto-tick,.ai-edge.live,.ai-node,.ai-beam,.lab-scroll i,
+  .bp-line.mark-a,.bp-line.mark-b,.bp-line.mark-c,.bp-bar,.bp-link,.bp-particle,.bp-scan,
+  .cm-dot,.cm-pulse-ring,.cm-link,.cm-marker,
+  .sh-spoke,.sh-warn-ring,.sh-particle,.sh-hub-ring,.sh-hub,
   .lab .pill::before{animation:none!important}
   .lab-success-mark circle,.lab-success-mark path{animation:none!important;stroke-dashoffset:0!important}
   .lab-title span,.lab-lede,.lab-scroll{opacity:1!important;transform:none!important;animation:none!important}
