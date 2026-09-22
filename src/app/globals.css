@@ -262,6 +262,11 @@ a{color:inherit;text-decoration:none}
 .substrip-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,52px);margin-top:clamp(28px,4vw,40px)}
 .substrip-item{display:flex;align-items:flex-start;gap:20px}
 .strip-mark{flex:none;width:64px;color:rgba(221,230,229,.55)}
+/* The showcase gears carry their own clamp widths (up to 62px), which ignore
+   .strip-mark's 64px box entirely. The strip uses one gear at a fixed size,
+   in the signature teal, so it carries the same visual weight as the network
+   mark beside it rather than reading as a faint stray shape. */
+.strip-mark .auto-gear-mark{width:46px;height:46px;color:var(--assure);opacity:.85}
 .substrip-item h4{color:#fff;font-family:var(--font-archivo),sans-serif;font-size:1.02rem;font-weight:700;margin-bottom:6px}
 .substrip-item p{color:var(--paper-text-soft);font-size:.92rem;line-height:1.6;max-width:38ch}
 @media(max-width:640px){.substrip-grid{grid-template-columns:1fr}}

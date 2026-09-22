@@ -193,11 +193,13 @@ export function AiVisual() {
    than full showcase scale. The full visuals stay exported and untouched. */
 export function AutomationMark() {
   return (
+    // One gear, not the showcase's meshing pair. At strip scale the pair has
+    // no room to mesh, so it renders as two small shapes offset from each
+    // other and reads as a rendering fault rather than a mark — and beside
+    // the network mark's single confident shape, it looked accidental. One
+    // gear at the same visual weight says the same thing and holds the line.
     <div className="strip-mark" aria-hidden="true">
-      <div className="auto-machine">
-        <Gear className="auto-gear auto-gear-lg" />
-        <Gear className="auto-gear auto-gear-sm" />
-      </div>
+      <Gear className="auto-gear auto-gear-mark" />
     </div>
   );
 }
