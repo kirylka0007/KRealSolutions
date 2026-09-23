@@ -31,7 +31,7 @@ export default function InnovationLabPage() {
         <div className="wrap">
           <div className="lab-hero">
             <AssuranceCore />
-            <span className="pill">Preview access · selected internal audit teams only</span>
+            <span className="pill">Preview access · selected internal audit and second-line teams only</span>
             <h1 className="lab-title">
               {TITLE_WORDS.map((w, i) => (
                 <span key={w.t} style={{ animationDelay: `${0.15 + i * 0.09}s` }}>
@@ -42,7 +42,7 @@ export default function InnovationLabPage() {
             <p className="lab-lede">
               Process mining, board papers, continuous controls monitoring and stakeholder relationships, running
               together on real audit workflows. This is where we build what comes next – and a small number of
-              internal audit teams get to see it first.
+              internal audit and second-line teams get to see it first.
             </p>
             <span className="lab-scroll">
               See it working
