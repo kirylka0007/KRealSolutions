@@ -484,10 +484,66 @@ export function StakeholderVisual() {
   );
 }
 
+// Combined assurance: each function scored by the second line and by internal
+// audit on the same 1–5 scale, over a bar for its residual risk. Where the two
+// agree the link is quiet; where they diverge it is flagged; where risk is high
+// and neither is testing it, the gap pulses; where both test the same low-risk
+// ground heavily, the doubled work is marked.
+const CA_X0 = 100;
+const CA_STEP = 86;
+const CA_BASE = 320;
+const caY = (score: number) => 300 - (score - 1) * 60;
+const CA_FUNCTIONS: Array<{
+  second: number;
+  third: number;
+  risk: number;
+  kind?: "diverge" | "gap" | "doubled";
+}> = [
+  { second: 4, third: 4, risk: 3 },
+  { second: 5, third: 2, risk: 4, kind: "diverge" },
+  { second: 5, third: 5, risk: 2, kind: "doubled" },
+  { second: 3, third: 3, risk: 3 },
+  { second: 1, third: 1, risk: 5, kind: "gap" },
+  { second: 1, third: 4, risk: 4, kind: "diverge" },
+  { second: 4, third: 3, risk: 3 },
+  { second: 2, third: 2, risk: 2 },
+];
+
+export function CombinedAssuranceVisual() {
+  return (
+    <svg
+      viewBox="0 0 800 360"
+      className="ca-svg"
+      role="img"
+      aria-label="An animated assurance map: eight functions, each scored by the second line and by internal audit over its residual risk, with disagreements between the two lines flagged, a high-risk function nobody is testing pulsing as a gap, and doubled testing of low-risk ground marked"
+    >
+      <line x1="60" y1={CA_BASE} x2="740" y2={CA_BASE} className="ca-axis" />
+      <rect x="0" y="40" width="64" height="290" className="ca-sweep" />
+      {CA_FUNCTIONS.map((f, i) => {
+        const x = CA_X0 + i * CA_STEP;
+        const y2 = caY(f.second);
+        const y3 = caY(f.third);
+        const riskTop = caY(f.risk);
+        return (
+          <g key={i}>
+            <rect x={x - 16} y={riskTop} width="32" height={CA_BASE - riskTop} rx="6" className={`ca-risk${f.kind === "gap" ? " gap" : ""}`} />
+            {f.kind === "gap" && <circle cx={x} cy={riskTop} r="9" className="ca-gap-ring" />}
+            <line x1={x} y1={y2} x2={x} y2={y3} className={`ca-link${f.kind === "diverge" ? " diverge" : ""}`} />
+            {f.kind === "doubled" && <circle cx={x} cy={y2} r="12" className="ca-doubled-ring" />}
+            <circle cx={x} cy={y2} r="7" className="ca-second" style={{ animationDelay: `${i * 0.35}s` }} />
+            <circle cx={x} cy={y3} r="5" className="ca-third" style={{ animationDelay: `${i * 0.35 + 0.2}s` }} />
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 const MARQUEE_WORDS = [
   "Process mining",
   "Board papers",
   "Continuous controls monitoring",
+  "Combined assurance",
   "Stakeholder relationships",
   "Robotic process automation",
   "Generative AI",

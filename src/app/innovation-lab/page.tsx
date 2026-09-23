@@ -7,6 +7,7 @@ import {
   ProcessMiningVisual,
   BoardPapersVisual,
   ContinuousMonitoringVisual,
+  CombinedAssuranceVisual,
   StakeholderVisual,
   AutomationMark,
   AiMark,
@@ -40,7 +41,7 @@ export default function InnovationLabPage() {
               ))}
             </h1>
             <p className="lab-lede">
-              Process mining, board papers, continuous controls monitoring and stakeholder relationships, running
+              Process mining, board papers, continuous controls monitoring, combined assurance and stakeholder relationships, running
               together on real audit workflows. This is where we build what comes next – and a small number of
               internal audit and second-line teams get to see it first.
             </p>
@@ -104,6 +105,22 @@ export default function InnovationLabPage() {
           <div className="showcase">
             <div className="showcase-copy">
               <span className="showcase-num">04</span>
+              <span className="tag">Combined assurance</span>
+              <h3>Every function scored twice. The gaps show themselves</h3>
+              <p>
+                The second line – risk and compliance – and internal audit score every function on the same scales.
+                Where they disagree is a finding in its own right; where risk is high and neither is testing it is
+                the gap audit exists to close; where both test the same ground is effort better spent elsewhere.
+              </p>
+            </div>
+            <div className="showcase-visual">
+              <CombinedAssuranceVisual />
+            </div>
+          </div>
+
+          <div className="showcase">
+            <div className="showcase-copy">
+              <span className="showcase-num">05</span>
               <span className="tag">Stakeholder relationships</span>
               <h3>Assesses the entity. Never the individual</h3>
               <p>
