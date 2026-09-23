@@ -16,6 +16,8 @@ export const innovationLabSchema = z.object({
     .refine((email) => !isFreeEmailDomain(email), {
       message: "Please use your company email address",
     }),
+  // Ticked "consider me for the Founding Practitioner Cohort". Absent means no.
+  foundingCohort: z.boolean().optional().default(false),
   honeypot: z.string().max(200).optional().or(z.literal("")),
 });
 

@@ -105,7 +105,7 @@ export async function notifyInnovationLabRequest(input: InnovationLabInput) {
       body: JSON.stringify({
         from: "K Real Solutions website <notifications@send.krealsolutions.co.uk>",
         to: notifyTo,
-        subject: `New Innovation Lab request from ${input.name} (${input.company})`,
+        subject: `New Innovation Lab request from ${input.name} (${input.company})${input.foundingCohort ? " – cohort interest" : ""}`,
         text: [
           `Name: ${input.name}`,
           `Title: ${input.title}`,
@@ -114,6 +114,7 @@ export async function notifyInnovationLabRequest(input: InnovationLabInput) {
           `Industry: ${input.industry}`,
           `Email: ${input.email}`,
           `Reason: ${input.reason}`,
+          `Founding Practitioner Cohort: ${input.foundingCohort ? "Yes – wants to be considered" : "No"}`,
         ].join("\n"),
       }),
     });

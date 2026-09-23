@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
     industry: parsed.data.industry,
     reason: parsed.data.reason,
     email: parsed.data.email,
+    founding_cohort: parsed.data.foundingCohort,
   });
 
   if (error) {

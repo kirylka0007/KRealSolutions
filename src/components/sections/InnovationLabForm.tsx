@@ -21,6 +21,7 @@ export function InnovationLabForm() {
       industry: String(data.get("industry") || ""),
       reason: String(data.get("reason") || ""),
       email: String(data.get("email") || ""),
+      foundingCohort: data.get("foundingCohort") === "on",
       honeypot: String(data.get("company_role") || ""),
     };
 
@@ -97,6 +98,13 @@ export function InnovationLabForm() {
         <label>
           Why are you interested? *
           <textarea name="reason" rows={4} required />
+        </label>
+        <label className="lab-checkbox">
+          <input type="checkbox" name="foundingCohort" />
+          <span>
+            I&apos;d like to be considered for the <strong>Founding Practitioner Cohort</strong> – early access to new
+            tools in return for candid feedback on what&apos;s useful and what isn&apos;t.
+          </span>
         </label>
 
         {status === "error" && (
