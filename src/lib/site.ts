@@ -92,3 +92,17 @@ export function pageMetadata({
     twitter: { card: "summary_large_image" as const, title, description, images },
   };
 }
+
+/** The same trail as `Crumbs`, as structured data; the home page is its first step. */
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [{ name: "Home", path: "/" }, ...items].map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path === "/" ? "" : item.path}`,
+    })),
+  };
+}

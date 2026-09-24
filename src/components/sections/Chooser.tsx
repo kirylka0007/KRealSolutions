@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { useIntent } from "@/context/IntentContext";
@@ -24,7 +25,7 @@ const PANELS: Panel[] = [
     desc: "We find the highest-value uses across your audit lifecycle – document and policy review, fraud indicators, risk assessment, QA and reporting – and build them to run in a regulated environment, with a human in the loop",
     rel: (
       <>
-        Where we&apos;d start: <a href="/services#genai">GenAI for Internal Audit</a>
+        Where we&apos;d start: <Link href="/services/genai-for-internal-audit">GenAI for Internal Audit</Link>
         <br />
         Proof: bulk document analysis · fake-receipt detection · automated briefings
       </>
@@ -40,8 +41,8 @@ const PANELS: Panel[] = [
     desc: "We help audit teams take the first steps: quick wins that build confidence, a practical roadmap, and hands-on training so the capability stays with your people, not with a contractor",
     rel: (
       <>
-        Where we&apos;d start: <a href="/services#auto">Audit &amp; Analytics Automation</a> ·{" "}
-        <a href="/services#ccm">Continuous Assurance foundations</a>
+        Where we&apos;d start: <Link href="/services/audit-analytics-automation">Audit &amp; Analytics Automation</Link> ·{" "}
+        <Link href="/services/continuous-controls-monitoring">Continuous Assurance foundations</Link>
         <br />
         Plus: training &amp; upskilling built into the engagement
       </>
@@ -57,8 +58,8 @@ const PANELS: Panel[] = [
     desc: "We review what's already been built – for value, control weaknesses and key-person risk – govern the self-service estate, and unlock the use cases the licences were bought for in the first place",
     rel: (
       <>
-        Where we&apos;d start: <a href="/services#euc">Self-Service Analytics Assurance</a> ·{" "}
-        <a href="/services#auto">Audit &amp; Analytics Automation</a>
+        Where we&apos;d start: <Link href="/services/self-service-analytics-assurance">Self-Service Analytics Assurance</Link> ·{" "}
+        <Link href="/services/audit-analytics-automation">Audit &amp; Analytics Automation</Link>
         <br />
         Context: long-standing research finds ~88% of business spreadsheets contain errors (Panko / EuSpRIG)
       </>
@@ -74,7 +75,7 @@ const PANELS: Panel[] = [
     desc: "We design and build continuous controls monitoring – data feeds blended and scored, exceptions flagged and routed to the right auditor automatically – so you move from a sample to the full population",
     rel: (
       <>
-        Where we&apos;d start: <a href="/services#ccm">Continuous Assurance &amp; Controls Monitoring</a>
+        Where we&apos;d start: <Link href="/services/continuous-controls-monitoring">Continuous Assurance &amp; Controls Monitoring</Link>
         <br />
         Proof: continuous monitoring platform · unstructured email into a tested control
       </>
@@ -90,7 +91,7 @@ const PANELS: Panel[] = [
     desc: "A short, no-obligation conversation about your controls, your data and your team. We'll tell you honestly where analytics and AI would move the needle – and, just as usefully, where they wouldn't.",
     rel: (
       <>
-        We can look across any of it: <a href="/services">the full range of services</a>
+        We can look across any of it: <Link href="/services">the full range of services</Link>
       </>
     ),
     offerTitle: "Initial conversation",

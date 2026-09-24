@@ -19,7 +19,7 @@ export function Approach() {
         <div className="appr-grid">
           {APPROACH.map((a) => (
             <Reveal as="div" className="appr" key={a.title}>
-              <h4>{a.title}</h4>
+              <h3>{a.title}</h3>
               <p>{a.body}</p>
             </Reveal>
           ))}

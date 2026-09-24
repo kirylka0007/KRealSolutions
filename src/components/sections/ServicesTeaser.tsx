@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { serviceById, servicePath } from "@/lib/services";
 
 const TEASERS = [
   { id: "ccm", title: "Continuous Assurance & Controls Monitoring", blurb: "Always-on control monitoring instead of periodic samples" },
@@ -24,7 +25,7 @@ export function ServicesTeaser() {
             <Reveal as="article" className="teaser-card" key={t.id}>
               <h3>{t.title}</h3>
               <p>{t.blurb}</p>
-              <Link href={`/services#${t.id}`} className="teaser-link">
+              <Link href={servicePath(serviceById(t.id))} className="teaser-link">
                 Learn more →
               </Link>
             </Reveal>

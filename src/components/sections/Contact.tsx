@@ -18,17 +18,17 @@ export function Contact() {
         <div className="freebar">
           <a href="/health-check" className="f">
             <span className="tag">No cost</span>
-            <h4>Health check</h4>
+            <h3>Health check</h3>
             <p>Six quick questions – see where you stand and the single best-fit next step, instantly</p>
           </a>
           <div className="f">
             <span className="tag">No cost</span>
-            <h4>Intro with your IA team</h4>
+            <h3>Intro with your IA team</h3>
             <p>A conversation with your auditors to explore what&apos;s possible and answer the hard questions. No pitch.</p>
           </div>
           <div className="f">
             <span className="tag">Included</span>
-            <h4>Training &amp; upskilling</h4>
+            <h3>Training &amp; upskilling</h3>
             <p>Hands-on sessions so your auditors build and review analytics themselves – the capability stays in-house</p>
           </div>
         </div>

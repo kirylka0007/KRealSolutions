@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
+import { caseById, casePath } from "@/lib/cases";
 
 const TEASERS = [
   { id: "ccm-01", title: "Continuous controls monitoring platform", metric: "24/7", metricLabel: "Always-on monitoring" },
@@ -24,7 +25,7 @@ export function WorkTeaser() {
                 <span className="ml">{t.metricLabel}</span>
               </div>
               <h3>{t.title}</h3>
-              <Link href={`/who-we-are#${t.id}`} className="teaser-link teaser-link--dark">
+              <Link href={casePath(caseById(t.id)!)} className="teaser-link teaser-link--dark">
                 Read the case →
               </Link>
             </Reveal>

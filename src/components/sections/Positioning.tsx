@@ -12,6 +12,8 @@ export function Positioning() {
             width={120}
             height={120}
             className="principal-photo"
+            // In the first screen of Who we are, so loaded straight away rather than lazily.
+            priority
           />
           <div>
             <div className="principal-name">Kiryl Katushkin, FCCA</div>
@@ -36,7 +38,7 @@ export function Positioning() {
               That experience includes putting AI and automation into <strong>live production inside a large, regulated financial-services firm</strong> – solutions that survive contact with real controls, real regulators and real audit committees. That&apos;s the difference between a proof-of-concept and something your function can actually run.
             </p>
             <p style={{ marginTop: 16 }}>
-              K Real Solutions is based in Edinburgh, UK, and works with clients across the UK and internationally, subject to local regulatory requirements
+              K Real Solutions is based in Edinburgh, Scotland, and works with clients across the UK and internationally, subject to local regulatory requirements.
             </p>
           </div>
         </Reveal>

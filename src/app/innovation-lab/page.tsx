@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Nav } from "@/components/sections/Nav";
 import { InnovationLabForm } from "@/components/sections/InnovationLabForm";
 import { Footer } from "@/components/sections/Footer";
@@ -72,7 +73,8 @@ export default function InnovationLabPage() {
         <Marquee />
 
         <div className="wrap">
-          <div className="showcase">
+          <h2 className="sr-only">The tools in the Lab</h2>
+          <div className="showcase" id="process-mining">
             <div className="showcase-copy">
               <span className="showcase-num">01</span>
               <span className="tag">Process mining</span>
@@ -81,13 +83,16 @@ export default function InnovationLabPage() {
                 Reconstructed from your event data, not your flowchart. Variants, rework loops and control gaps
                 surface on their own – and anything that breaks the rules lights up the moment it happens.
               </p>
+              <Link href="/services/process-mining" className="showcase-svc">
+                The service: process mining <span aria-hidden>→</span>
+              </Link>
             </div>
             <div className="showcase-visual">
               <ProcessMiningVisual />
             </div>
           </div>
 
-          <div className="showcase">
+          <div className="showcase" id="board-papers">
             <div className="showcase-copy">
               <span className="showcase-num">02</span>
               <span className="tag">Board papers</span>
@@ -103,7 +108,7 @@ export default function InnovationLabPage() {
             </div>
           </div>
 
-          <div className="showcase">
+          <div className="showcase" id="continuous-monitoring">
             <div className="showcase-copy">
               <span className="showcase-num">03</span>
               <span className="tag">Continuous controls monitoring</span>
@@ -113,13 +118,16 @@ export default function InnovationLabPage() {
                 smoothing. Each flag runs raised, investigated, reviewed, approved; approval is evidence someone
                 looked, not that the count went down.
               </p>
+              <Link href="/services/continuous-controls-monitoring" className="showcase-svc">
+                The service: continuous controls monitoring <span aria-hidden>→</span>
+              </Link>
             </div>
             <div className="showcase-visual">
               <ContinuousMonitoringVisual />
             </div>
           </div>
 
-          <div className="showcase">
+          <div className="showcase" id="combined-assurance">
             <div className="showcase-copy">
               <span className="showcase-num">04</span>
               <span className="tag">Combined assurance</span>
@@ -135,7 +143,7 @@ export default function InnovationLabPage() {
             </div>
           </div>
 
-          <div className="showcase">
+          <div className="showcase" id="stakeholder-relationships">
             <div className="showcase-copy">
               <span className="showcase-num">05</span>
               <span className="tag">Stakeholder relationships</span>
@@ -145,13 +153,16 @@ export default function InnovationLabPage() {
                 they belong to – never a rating on them. Agendas draft from what was left open last time; minutes
                 become categorised insight, and overdue conversations surface on their own.
               </p>
+              <Link href="/services/stakeholder-risk-intelligence" className="showcase-svc">
+                The service: stakeholder and risk intelligence <span aria-hidden>→</span>
+              </Link>
             </div>
             <div className="showcase-visual">
               <StakeholderVisual />
             </div>
           </div>
 
-          <div className="showcase">
+          <div className="showcase" id="contract-assurance">
             <div className="showcase-copy">
               <span className="showcase-num">06</span>
               <span className="tag">Contract assurance</span>
@@ -161,6 +172,9 @@ export default function InnovationLabPage() {
                 terms in force today. Ask what an auditor would ask, from uncapped liabilities to a fee register that
                 no longer matches the contract, and every answer names the document, clause and page it rests on.
               </p>
+              <Link href="/services/genai-for-internal-audit" className="showcase-svc">
+                The service: GenAI for internal audit <span aria-hidden>→</span>
+              </Link>
             </div>
             <div className="showcase-visual">
               <ContractAssuranceVisual />
@@ -176,14 +190,14 @@ export default function InnovationLabPage() {
               <div className="substrip-item">
                 <AutomationMark />
                 <div>
-                  <h4>Robotic automation</h4>
+                  <h3>Robotic automation</h3>
                   <p>Chasing, collection and reporting that runs itself, underneath every product above.</p>
                 </div>
               </div>
               <div className="substrip-item">
                 <AiMark />
                 <div>
-                  <h4>Generative AI</h4>
+                  <h3>Generative AI</h3>
                   <p>Reads everything so the products above only ever surface what matters.</p>
                 </div>
               </div>
