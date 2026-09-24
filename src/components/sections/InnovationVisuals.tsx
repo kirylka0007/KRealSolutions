@@ -539,12 +539,112 @@ export function CombinedAssuranceVisual() {
   );
 }
 
+// Contract assurance: one agreement and everything that changed it, in date
+// order along the top — the agreement, two amendments, a side letter whose
+// window has passed, an email and a scanned consent — each feeding the living
+// record below. Superseded clauses are struck through and replaced, the spent
+// side letter is dotted, and the email's claimed change is held apart in amber:
+// recorded against the term, never applied to it. Drawn finished; the motion
+// is only the order the documents are applied in.
+const CX_W = 92;
+const CX_X = (i: number) => 34 + i * 124;
+const CX_ROW = (r: number) => 224 + r * 17;
+const CX_DOCS: Array<{ kind: "agreement" | "amendment" | "letter" | "email" | "scan"; row: number }> = [
+  { kind: "agreement", row: 0 },
+  { kind: "amendment", row: 2 },
+  { kind: "amendment", row: 3 },
+  { kind: "letter", row: 4 },
+  { kind: "email", row: 5 },
+  { kind: "scan", row: 6 },
+];
+const CX_ROWS: Array<"force" | "struck" | "new" | "spent" | "claimed"> = ["force", "struck", "new", "new", "spent", "claimed", "force"];
+
+function cxLink(i: number, row: number) {
+  const x = CX_X(i) + CX_W / 2;
+  const left = i < 3;
+  const ex = left ? 262 : 538;
+  const y = CX_ROW(row);
+  return `M${x},150 C${x},${(150 + y) / 2 + 20} ${left ? ex - 60 : ex + 60},${y} ${ex},${y}`;
+}
+
+export function ContractAssuranceVisual() {
+  return (
+    <svg
+      viewBox="0 0 800 360"
+      className="cx-svg"
+      role="img"
+      aria-label="An animated contract chain: an agreement, two amendments, an expired side letter, an email and a scanned consent, applied in date order to one living record of the terms in force, with superseded clauses struck through, the expired side letter dotted and the email's claimed change held apart as not applied"
+    >
+      <line x1="34" y1="150" x2="746" y2="150" className="cx-time" />
+      {CX_DOCS.map((d, i) => {
+        const x = CX_X(i);
+        const h = d.kind === "letter" ? 84 : d.kind === "email" ? 64 : 100;
+        const y = 132 - h;
+        return (
+          <g key={i} className={`cx-doc ${d.kind}`} style={{ animationDelay: `${i * 0.9}s` }}>
+            {d.kind === "email" ? (
+              <>
+                <rect x={x} y={y} width={CX_W} height={h} rx="6" className="cx-page" />
+                <path d={`M${x},${y} L${x + CX_W / 2},${y + h * 0.55} L${x + CX_W},${y}`} className="cx-fold" />
+              </>
+            ) : (
+              <g transform={d.kind === "scan" ? `rotate(4 ${x + CX_W / 2} ${y + h / 2})` : undefined}>
+                <rect x={x} y={y} width={CX_W} height={h} rx="5" className="cx-page" />
+                {d.kind === "amendment" && <rect x={x} y={y} width={CX_W} height="9" rx="4" className="cx-band" />}
+                {Array.from({ length: d.kind === "letter" ? 4 : 6 }, (_, k) => (
+                  <line
+                    key={k}
+                    x1={x + 12}
+                    x2={x + CX_W - 12 - (k % 3) * 12 + (d.kind === "scan" ? (k % 2) * 6 : 0)}
+                    y1={y + 22 + k * 12}
+                    y2={y + 22 + k * 12 + (d.kind === "scan" ? (k % 2 ? 1.5 : -1) : 0)}
+                    className="cx-text"
+                  />
+                ))}
+              </g>
+            )}
+            <circle cx={x + CX_W / 2} cy="150" r="4" className="cx-tick" />
+          </g>
+        );
+      })}
+
+      {CX_DOCS.map((d, i) => (
+        <path key={`l${i}`} d={cxLink(i, d.row)} className={`cx-link${d.kind === "email" ? " claimed" : ""}`} />
+      ))}
+      <path d={cxLink(0, 1)} className="cx-link" />
+      {CX_DOCS.map((d, i) => (
+        <circle
+          key={`p${i}`}
+          r="3.2"
+          className={`cx-particle${d.kind === "email" ? " claimed" : ""}`}
+          style={{ offsetPath: `path("${cxLink(i, d.row)}")`, animationDelay: `${i * 0.9}s` }}
+        />
+      ))}
+
+      <rect x="262" y="198" width="276" height="148" rx="10" className="cx-record" />
+      <rect x="262" y="198" width="276" height="14" rx="7" className="cx-record-head" />
+      {CX_ROWS.map((kind, r) => {
+        const y = CX_ROW(r);
+        const w = [196, 170, 188, 150, 176, 160, 182][r]!;
+        return (
+          <g key={r} className={`cx-row ${kind}`}>
+            <rect x="280" y={y - 4} width="14" height="8" rx="2" className="cx-ref" />
+            <line x1="302" y1={y} x2={302 + w} y2={y} className="cx-clause" />
+            {kind === "struck" && <line x1="298" y1={y} x2={306 + w} y2={y} className="cx-strike" />}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 const MARQUEE_WORDS = [
   "Process mining",
   "Board papers",
   "Continuous controls monitoring",
   "Combined assurance",
   "Stakeholder relationships",
+  "Contract assurance",
   "Robotic process automation",
   "Generative AI",
   "Next-gen audit innovation",

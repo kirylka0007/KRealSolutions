@@ -9,6 +9,7 @@ import {
   ContinuousMonitoringVisual,
   CombinedAssuranceVisual,
   StakeholderVisual,
+  ContractAssuranceVisual,
   AutomationMark,
   AiMark,
 } from "@/components/sections/InnovationVisuals";
@@ -41,7 +42,7 @@ export default function InnovationLabPage() {
               ))}
             </h1>
             <p className="lab-lede">
-              Process mining, board papers, continuous controls monitoring, combined assurance and stakeholder relationships, running
+              Process mining, board papers, continuous controls monitoring, combined assurance, stakeholder relationships and contract assurance, running
               together on real audit workflows. This is where we build what comes next – and a small number of
               internal audit, risk and compliance teams get to see it first.
             </p>
@@ -134,6 +135,22 @@ export default function InnovationLabPage() {
             </div>
             <div className="showcase-visual">
               <StakeholderVisual />
+            </div>
+          </div>
+
+          <div className="showcase">
+            <div className="showcase-copy">
+              <span className="showcase-num">06</span>
+              <span className="tag">Contract assurance</span>
+              <h3>Every amendment applied. Every answer sourced</h3>
+              <p>
+                Agreements, amendments, side letters, emails and scans – read in date order into one record of the
+                terms in force today. Ask what an auditor would ask, from uncapped liabilities to a fee register that
+                no longer matches the contract, and every answer names the document, clause and page it rests on.
+              </p>
+            </div>
+            <div className="showcase-visual">
+              <ContractAssuranceVisual />
             </div>
           </div>
 
