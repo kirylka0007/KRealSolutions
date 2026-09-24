@@ -45,6 +45,9 @@ export default function InnovationLabPage() {
               together on real audit workflows. This is where we build what comes next – and a small number of
               internal audit, risk and compliance teams get to see it first.
             </p>
+            <a href="#request" className="btn btn-primary lab-cta">
+              Request access <span className="arrow">→</span>
+            </a>
             <span className="lab-scroll">
               See it working
               <i />
