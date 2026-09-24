@@ -1,5 +1,13 @@
 import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy policy",
+  description: "How K Real Solutions collects, uses and keeps the personal data sent through this website.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

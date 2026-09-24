@@ -53,7 +53,7 @@ export function Services() {
       <div className="wrap">
         <Reveal as="div" className="sec-head">
           <span className="eyebrow">What we do</span>
-          <h2>Four delivery lines, two advisory lines</h2>
+          <h1>Four delivery lines, two advisory lines</h1>
           <p>Capabilities that modernise your assurance – plus two advisory lines that govern the tools you already have and turn stakeholder engagement into risk intelligence. Every engagement includes knowledge transfer, so your team owns what we deliver.</p>
         </Reveal>
         <Reveal as="div" className="working-with-us-panel on-ink">

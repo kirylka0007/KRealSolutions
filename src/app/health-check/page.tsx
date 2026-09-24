@@ -2,6 +2,14 @@ import Link from "next/link";
 import { Nav } from "@/components/sections/Nav";
 import { HealthCheckQuiz } from "@/components/sections/HealthCheckQuiz";
 import { Footer } from "@/components/sections/Footer";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Audit analytics health check",
+  description: "Six quick questions on your audit function's data, analytics and AI maturity, and the single best-fit next step.",
+  path: "/health-check",
+});
 
 export default function HealthCheckPage() {
   return (
@@ -13,7 +21,7 @@ export default function HealthCheckPage() {
             <span className="eyebrow" style={{ justifyContent: "center" }}>
               Health check
             </span>
-            <h2>Where does your audit function stand?</h2>
+            <h1>Where does your audit function stand?</h1>
             <p style={{ margin: "18px auto 0" }}>
               Six quick questions. We&apos;ll tell you where you sit and the single best-fit next step – no
               sales call required to see it.

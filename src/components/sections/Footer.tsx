@@ -11,6 +11,7 @@ export function Footer() {
         <nav className="footer-links">
           <Link href="/services">Services</Link>
           <Link href="/who-we-are">Who we are</Link>
+          <Link href="/innovation-lab">Innovation Lab</Link>
           <Link href="/health-check">Health check</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>

@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { IntentProvider } from "@/context/IntentContext";
+import { SITE_URL, organisationJsonLd } from "@/lib/site";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -23,25 +24,34 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const DESCRIPTION =
+  "Edinburgh-based, FCCA-led consultancy building continuous controls monitoring, process mining and GenAI for internal audit, risk and compliance teams across the UK.";
+
+// Each page sets its own title, description and canonical path; these are
+// the defaults and the parts every page shares. The social image comes from
+// `opengraph-image.tsx` (the Innovation Lab has its own).
 export const metadata: Metadata = {
-  title: "K Real Solutions – Continuous, AI-driven assurance for internal audit",
-  description:
-    "Consulting for internal audit and assurance teams: continuous controls monitoring, GenAI for audit, analytics automation and process mining – built by a qualified auditor and data scientist.",
-  metadataBase: new URL("https://krealsolutions.co.uk"), // PLACEHOLDER — replace once domain is bought and DNS is live
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Internal audit analytics and AI, Edinburgh | K Real Solutions",
+    template: "%s | K Real Solutions",
+  },
+  description: DESCRIPTION,
   openGraph: {
-    title: "K Real Solutions – Continuous, AI-driven assurance for internal audit",
-    description:
-      "Continuous controls monitoring, GenAI for audit, analytics automation and process mining – for internal audit teams.",
-    url: "https://krealsolutions.co.uk", // PLACEHOLDER
     siteName: "K Real Solutions",
     type: "website",
+    locale: "en_GB",
+    url: "/",
+    description: DESCRIPTION,
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable}`}>
+    <html lang="en-GB" className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organisationJsonLd) }} />
         <IntentProvider>{children}</IntentProvider>
         <Analytics />
       </body>

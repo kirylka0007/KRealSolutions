@@ -1,6 +1,14 @@
 import { Nav } from "@/components/sections/Nav";
 import { HealthCheckLookup } from "@/components/sections/HealthCheckLookup";
 import { Footer } from "@/components/sections/Footer";
+import type { Metadata } from "next";
+
+// A utility page for re-sending a stored result: nothing here to rank.
+export const metadata: Metadata = {
+  title: "Look up your health-check result",
+  alternates: { canonical: "/health-check/lookup" },
+  robots: { index: false, follow: true },
+};
 
 export default function HealthCheckLookupPage() {
   return (

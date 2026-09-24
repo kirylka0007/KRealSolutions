@@ -1,6 +1,8 @@
 import { Nav } from "@/components/sections/Nav";
 import { InnovationLabForm } from "@/components/sections/InnovationLabForm";
 import { Footer } from "@/components/sections/Footer";
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import {
   AssuranceCore,
   Marquee,
@@ -13,6 +15,13 @@ import {
   AutomationMark,
   AiMark,
 } from "@/components/sections/InnovationVisuals";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Innovation Lab – AI tools for internal audit",
+  description: "Preview access for internal audit, risk and compliance teams: process mining, board papers, continuous controls monitoring, combined assurance, stakeholder relationships and contract assurance.",
+  path: "/innovation-lab",
+  image: "/innovation-lab/opengraph-image",
+});
 
 const TITLE_WORDS: Array<{ t: string; em?: boolean }> = [
   { t: "Next-generation" },
@@ -35,9 +44,13 @@ export default function InnovationLabPage() {
             <AssuranceCore />
             <span className="pill">Preview access · selected internal audit, risk and compliance teams only</span>
             <h1 className="lab-title">
+              {/* A real space after each word, so the heading reads as words to search
+                  engines and screen readers. Zero-width and inside the word's box, so the
+                  margin still sets the spacing and the line breaks are unchanged. */}
               {TITLE_WORDS.map((w, i) => (
                 <span key={w.t} style={{ animationDelay: `${0.15 + i * 0.09}s` }}>
                   {w.em ? <em>{w.t}</em> : w.t}
+                  {i < TITLE_WORDS.length - 1 && <b className="sp"> </b>}
                 </span>
               ))}
             </h1>

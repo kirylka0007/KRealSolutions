@@ -8,7 +8,7 @@ export function Positioning() {
         <Reveal as="div" className="principal">
           <Image
             src="/kiryl.jpg"
-            alt="Kiryl Katushkin"
+            alt="Kiryl Katushkin FCCA, founder of K Real Solutions"
             width={120}
             height={120}
             className="principal-photo"
@@ -26,7 +26,7 @@ export function Positioning() {
           </div>
         </Reveal>
         <Reveal as="div" className="grid">
-          <p className="big">Founded by an auditor who can build – and a data scientist who understands assurance</p>
+          <h1 className="big">Founded by an auditor who can build – and a data scientist who understands assurance</h1>
           <div className="body">
             <p>
               Most audit-analytics advice comes from one of two camps: auditors who can&apos;t build, or technologists who don&apos;t understand assurance. K Real Solutions was founded by Kiryl to sit in the overlap –{" "}
