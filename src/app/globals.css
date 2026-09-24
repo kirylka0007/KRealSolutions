@@ -181,6 +181,10 @@ a{color:inherit;text-decoration:none}
 .lab-hero{min-height:clamp(620px,88vh,940px);display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;padding:120px 0 90px}
 .lab-hero .pill{position:relative;z-index:3;margin-bottom:34px}
+/* Phones and tablets: centring the hero in a min-height box, on top of the desktop top padding, left a band
+   of empty ink under the nav (120px on a phone, 200px on a tablet). Start it just below the nav instead. */
+@media(max-width:900px){.lab-hero{min-height:0;justify-content:flex-start;padding:48px 0 72px}}
+@media(max-width:560px){.lab-hero{padding:40px 0 64px}.lab-hero .pill{margin-bottom:28px}}
 .lab .pill{color:#f2fffc;font-size:.74rem;font-weight:500;letter-spacing:.15em;padding:9px 20px;
   background:rgba(18,165,148,.16);border-color:rgba(25,201,180,.6);
   box-shadow:0 0 30px rgba(18,165,148,.28),inset 0 1px 0 rgba(255,255,255,.08);
