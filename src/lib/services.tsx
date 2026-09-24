@@ -10,8 +10,10 @@ export interface Service {
   id: string;
   slug: string;
   title: string;
-  /** Four delivery lines, then two advisory lines. */
-  kind: "delivery" | "advisory";
+  /** Co-sourced internal audit, then the four analytics delivery lines and two advisory lines. */
+  kind: "audit" | "delivery" | "advisory";
+  /** The page title when it should differ from the card title, e.g. to name where the service is offered. */
+  seoTitle?: string;
   body: ReactNode;
   /** The same description as plain text, for page descriptions and structured data. */
   summary: string;
@@ -25,6 +27,24 @@ export interface Service {
 }
 
 export const SERVICES: Service[] = [
+  {
+    id: "cosource",
+    slug: "co-sourced-internal-audit",
+    title: "Co-sourced Internal Audit",
+    seoTitle: "Co-sourced internal audit, Scotland and UK",
+    kind: "audit",
+    body: "FCCA-led internal audit capacity that works alongside your in-house team. We take on audits from your plan and deliver them to your methodology and reporting standards – and bring data analytics into every one, testing whole populations where your data allows rather than defaulting to samples. Your function keeps ownership of the plan and the opinion; we add capacity and capability.",
+    summary:
+      "FCCA-led co-sourced internal audit: audits from your plan, delivered alongside your team to your methodology, with data analytics in every one. Based in Edinburgh, working across Scotland and the UK.",
+    tags: ["Co-sourcing", "Internal audit", "Data analytics", "Full-population testing"],
+    engagement: {
+      duration: "Per audit or across your plan, scoped with you",
+      fee: "Fixed fee per audit, agreed up front",
+      deliverables:
+        "audits from your plan delivered to your methodology and reporting format · analytics and full-population testing where your data allows · working papers and knowledge transfer your team can build on",
+    },
+    caseIds: [],
+  },
   {
     id: "ccm",
     slug: "continuous-controls-monitoring",

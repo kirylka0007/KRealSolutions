@@ -24,7 +24,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const s = serviceBySlug((await params).slug);
   if (!s) return {};
-  return pageMetadata({ title: s.title, description: s.summary, path: servicePath(s) });
+  return pageMetadata({ title: s.seoTitle ?? s.title, description: s.summary, path: servicePath(s) });
 }
 
 export default async function ServicePage({ params }: Props) {
@@ -59,7 +59,7 @@ export default async function ServicePage({ params }: Props) {
         <div className="wrap">
           <Crumbs items={[{ name: "Services", href: "/services" }, { name: s.title }]} />
           <Reveal as="div" className="sec-head">
-            <span className="eyebrow">{s.kind === "delivery" ? "Delivery line" : "Advisory line"}</span>
+            <span className="eyebrow">{s.kind === "audit" ? "Internal audit" : s.kind === "delivery" ? "Delivery line" : "Advisory line"}</span>
             <h1>{s.title}</h1>
             <p>{s.body}</p>
           </Reveal>

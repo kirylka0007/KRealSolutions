@@ -676,3 +676,5 @@ footer .brand .dot{width:7px;height:7px}
 .case-rel a{color:var(--assure-bright)}
 .showcase-svc{display:inline-block;margin-top:16px;color:var(--assure-bright);font-size:.9rem;font-weight:600}
 .showcase-svc:hover{text-decoration:underline}
+.svc-cosource{margin-top:20px}
+.svc-cosource h2{font-size:1.32rem;margin:14px 0 12px;font-weight:700}

@@ -5,6 +5,7 @@ import { WorkingWithUs } from "@/components/sections/WorkingWithUs";
 
 const DELIVERY = SERVICES.filter((s) => s.kind === "delivery");
 const ADVISORY = SERVICES.filter((s) => s.kind === "advisory");
+const COSOURCE = SERVICES.find((s) => s.kind === "audit")!;
 
 export function Services() {
   return (
@@ -72,6 +73,35 @@ export function Services() {
             </Reveal>
           ))}
         </div>
+
+        {/* Audit delivery itself, rather than an analytics line; its own page has the detail. */}
+        <Reveal as="article" className="svc svc--wide svc-cosource" id={COSOURCE.id}>
+          <div className="svc-wide-main">
+            <span className="eyebrow">Internal audit</span>
+            <h2>
+              <Link href={servicePath(COSOURCE)}>{COSOURCE.title}</Link>
+            </h2>
+            <p>{COSOURCE.body}</p>
+            <div className="svc-engagement">
+              <p>
+                <b>Typical engagement:</b> {COSOURCE.engagement.duration}
+              </p>
+              <p>
+                <b>Fee model:</b> {COSOURCE.engagement.fee}
+              </p>
+            </div>
+          </div>
+          <div className="svc-wide-side">
+            <div className="tags">
+              {COSOURCE.tags.map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <p className="svc-lab">
+              <Link href={servicePath(COSOURCE)}>More on co-sourced internal audit →</Link>
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

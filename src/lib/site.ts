@@ -30,6 +30,7 @@ export const organisationJsonLd = {
       founder: { "@id": `${SITE_URL}/who-we-are#kiryl-katushkin` },
       knowsAbout: [
         "Internal audit",
+        "Co-sourced internal audit",
         "Continuous controls monitoring",
         "Process mining",
         "Generative AI for internal audit",
