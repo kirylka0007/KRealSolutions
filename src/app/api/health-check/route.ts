@@ -1,16 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { healthCheckSchema } from "@/lib/health-check-schema";
-import { checkRateLimit } from "@/lib/rate-limit";
+import { rejectBots, throttle } from "@/lib/form-guard";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
 import { scoreMaturityTier, getRecommendation } from "@/lib/health-check-scoring";
 import { sendHealthCheckResult } from "@/lib/resend";
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-
-  if (!checkRateLimit(ip)) {
-    return NextResponse.json({ ok: false, error: "Too many requests – please try again shortly." }, { status: 429 });
-  }
+  const bot = await rejectBots();
+  if (bot) return bot;
 
   const body = await req.json().catch(() => null);
   const parsed = healthCheckSchema.safeParse(body);
@@ -21,6 +18,9 @@ export async function POST(req: NextRequest) {
   if (parsed.data.honeypot) {
     return NextResponse.json({ ok: true }, { status: 201 });
   }
+
+  const limited = await throttle(req, "health-check", parsed.data.email);
+  if (limited) return limited;
 
   const tier = scoreMaturityTier(parsed.data.teamSize, parsed.data.maturity, parsed.data.budget);
   const recommendation = getRecommendation(parsed.data.aim, tier);

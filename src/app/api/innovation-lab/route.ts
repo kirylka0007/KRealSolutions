@@ -1,15 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { innovationLabSchema } from "@/lib/innovation-lab-schema";
-import { checkRateLimit } from "@/lib/rate-limit";
+import { rejectBots, throttle } from "@/lib/form-guard";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
 import { notifyInnovationLabRequest } from "@/lib/resend";
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-
-  if (!checkRateLimit(ip)) {
-    return NextResponse.json({ ok: false, error: "Too many requests – please try again shortly." }, { status: 429 });
-  }
+  const bot = await rejectBots();
+  if (bot) return bot;
 
   const body = await req.json().catch(() => null);
   const parsed = innovationLabSchema.safeParse(body);
@@ -24,6 +21,9 @@ export async function POST(req: NextRequest) {
   if (parsed.data.honeypot) {
     return NextResponse.json({ ok: true }, { status: 201 });
   }
+
+  const limited = await throttle(req, "innovation-lab", parsed.data.email);
+  if (limited) return limited;
 
   const supabase = getSupabaseServerClient();
   const { error } = await supabase.from("innovation_lab_requests").insert({

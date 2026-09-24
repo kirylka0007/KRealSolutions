@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 
 /**
  * Sent with every response. The policy only forbids other sites from framing
@@ -19,4 +20,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// BotID adds the rewrites its browser check talks to; see instrumentation-client.ts.
+export default withBotId(nextConfig);

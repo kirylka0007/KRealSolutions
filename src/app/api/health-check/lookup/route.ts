@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { healthCheckLookupSchema } from "@/lib/health-check-lookup-schema";
-import { checkRateLimit } from "@/lib/rate-limit";
+import { rejectBots, throttle } from "@/lib/form-guard";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
 import { scoreMaturityTier, getRecommendation } from "@/lib/health-check-scoring";
 import { sendHealthCheckResult } from "@/lib/resend";
@@ -8,17 +8,17 @@ import type { Industry, TeamSize, Maturity, Budget } from "@/types/health-check"
 import type { IntentKey } from "@/types/intent";
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-
-  if (!checkRateLimit(ip)) {
-    return NextResponse.json({ ok: false, error: "Too many requests – please try again shortly." }, { status: 429 });
-  }
+  const bot = await rejectBots();
+  if (bot) return bot;
 
   const body = await req.json().catch(() => null);
   const parsed = healthCheckLookupSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json({ ok: false, error: "Please enter a valid email." }, { status: 400 });
   }
+
+  const limited = await throttle(req, "health-check-lookup", parsed.data.email);
+  if (limited) return limited;
 
   const supabase = getSupabaseServerClient();
   const { data } = await supabase
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       honeypot: "",
       tier,
       recommendation,
-    }).catch(() => {});
+    }, { notifyOwner: false }).catch(() => {});
   }
 
   // Always the same response whether or not a match was found - avoids

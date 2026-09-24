@@ -35,7 +35,12 @@ type HealthCheckResultInput = HealthCheckInput & {
   recommendation: { headline: string; body: string };
 };
 
-export async function sendHealthCheckResult(input: HealthCheckResultInput) {
+/**
+ * Emails the visitor their result and, unless `notifyOwner` is false, tells
+ * the owner someone completed the quiz. The lookup form re-sends a stored
+ * result, which is not a new completion, so it passes false.
+ */
+export async function sendHealthCheckResult(input: HealthCheckResultInput, { notifyOwner = true } = {}) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return;
 
@@ -50,7 +55,7 @@ export async function sendHealthCheckResult(input: HealthCheckResultInput) {
       to: input.email,
       subject: "Your K Real Solutions health-check result",
       text: [
-        `Hi ${input.name},`,
+        "Hello,",
         "",
         input.recommendation.headline,
         input.recommendation.body,
@@ -64,7 +69,7 @@ export async function sendHealthCheckResult(input: HealthCheckResultInput) {
   });
 
   const notifyTo = process.env.ENQUIRY_NOTIFY_EMAIL;
-  if (!notifyTo) return;
+  if (!notifyOwner || !notifyTo) return;
 
   await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -133,7 +138,7 @@ export async function notifyInnovationLabRequest(input: InnovationLabInput) {
       to: input.email,
       subject: "Thanks for your interest — K Real Solutions Innovation Lab",
       text: [
-        `Hi ${input.name},`,
+        "Hello,",
         "",
         "Thanks for requesting access to the Innovation Lab. We review every request by hand, so if it's a good fit you'll hear back from us by email with your access details.",
         "",
